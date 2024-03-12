@@ -12,3 +12,18 @@ export async function getFilme(id) {
     const data = await response.json()
     return data.filme
 }
+
+export async function postFilme (filme) {
+    const url = 'http://localhost:8080/v2/acmefilmes/filme/'
+    
+    const options = {
+        method: 'POST',
+        headers: {
+            'Content-type' : 'Application/json',
+        },
+        body: JSON.stringify(filme)
+    }
+    const response = await fetch(url,options)
+
+    return response.ok
+}

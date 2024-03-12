@@ -3,3 +3,63 @@ header{
     height: 70px;
     background-color: #336DAF;
 }
+
+.cardsHolder{
+    display: grid;
+    height: 1000px;
+    width: 95vw;
+    background-color: #AF0F0F;
+}
+
+.cardFilmes{
+    display: flex;
+    flex-direction: column;
+    height: 400px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #336DAF;
+    border-radius: 25px;
+}
+
+.cardIMG{
+    display: flex;
+    height: 240px;
+    width: 180px;
+    background-color: white;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.banner{
+    height: 250px;
+    width: 200px;
+}
+
+.infoFilme{
+    width: 180px;
+    height: 100px;
+}
+
+.titulo{
+    font-size: 16px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+}
+
+.duracao{
+    font-size: 16px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+}
+
+.dtLanca{
+    font-size: 16px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 700;
+}
+
