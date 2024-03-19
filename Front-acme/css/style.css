@@ -1,14 +1,25 @@
 header{
-    width: 100%;
-    height: 70px;
+    width: 100vw;
+    height: 10vh;
+}
+
+.barraPesquisa{
+    width: 100vw;
+    height: 10vh;
     background-color: #336DAF;
 }
 
 .cardsHolder{
     display: grid;
-    height: 1000px;
-    width: 95vw;
+    height: 140vh;
+    width: 100vw;
     background-color: #AF0F0F;
+    grid-template-areas: 
+    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes"
+    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes";
+    align-items: center;
+    justify-content: space-evenly;
+    gap:20px
 }
 
 .cardFilmes{
