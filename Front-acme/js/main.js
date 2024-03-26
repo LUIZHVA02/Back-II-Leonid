@@ -37,6 +37,7 @@ export function criarCard(filme) {
     cardIMG.append(banner, avaliacoes)
     avaliacoes.append(starIMG)
     infoFilme.append(titulo, duracao, dtLanca)
+    
     return card
 }
 
