@@ -1,7 +1,7 @@
 import { getFilmes, getFilme, postFilme } from "./filmes.js"
 
 export function criarBarraPesquisa(){
-    const barraPesquisa = document.getElementsByClassName('barraPesquisa')
+    const barraPesquisa = document.getElementById('barraPesquisa')
 
     const menuBurguer = document.createElement('div')
     menuBurguer.classList.add('menuBurguer')
@@ -38,4 +38,7 @@ export function criarBarraPesquisa(){
     campoPesquisa.append(inputPesquisa,imgLupa)
     iconPerfil.appendChild(buttonPerfil)
     buttonPerfil.appendChild(imgIconPerfil)
+    barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil, buttonPerfil)
+
+    return barraPesquisa
 }
