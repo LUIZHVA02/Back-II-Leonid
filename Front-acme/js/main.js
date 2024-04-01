@@ -7,13 +7,13 @@ export function criarBarraPesquisa(){
     menuBurguer.classList.add('menuBurguer')
 
     const imgMenuBurguer = document.createElement('img')
-    imgMenuBurguer.src = '../image/png/menu-burguer.png'
+    imgMenuBurguer.src = './image/png/menu-burguer.png'
 
     const logo = document.createElement('div')
     logo.classList.add('logoPrincipal')
 
     const imgLogo = document.createElement('img')
-    imgLogo.src = '../image/png/acmeLogo.png'
+    imgLogo.src = './image/png/acmeLogo.png'
 
     const campoPesquisa = document.createElement('div')
     campoPesquisa.classList.add('campoPesquisa')
@@ -22,7 +22,7 @@ export function criarBarraPesquisa(){
     inputPesquisa.classList.add('inputPesquisa')
 
     const imgLupa = document.createElement('img')
-    imgLupa.src = '../image/png/lupa.png'
+    imgLupa.src = './image/png/lupa.png'
 
     const iconPerfil = document.createElement('div')
     iconPerfil.classList.add('iconPerfil')
@@ -31,7 +31,7 @@ export function criarBarraPesquisa(){
     buttonPerfil.classList.add('buttonPerfil')
 
     const imgIconPerfil = document.createElement('img')
-    imgIconPerfil.src = '../image/png/botão-perfil.png'
+    imgIconPerfil.src = './image/png/botão-perfil.png'
 
     barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil, buttonPerfil)
     menuBurguer.appendChild(imgMenuBurguer)
