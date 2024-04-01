@@ -3,15 +3,6 @@ header{
     height: 10vh;
 }
 
-.barraPesquisa{
-    width: 99vw;
-    height: 10vh;
-    background-color: #336DAF;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-}
-
 .cardsHolder{
     display: grid;
     padding-top: 40px;
