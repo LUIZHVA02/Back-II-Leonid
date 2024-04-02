@@ -5,29 +5,30 @@
 }
 
 header{
-    width: 99vw;
-    height: 10vh;
+    width: 100%;
+    height: fit-content;
+    background-color: #336DAF;
 }
 
 .cardsHolder{
     display: grid;
-    padding-top: 40px;
-    height: 150vh;
-    width: 99vw;
+    padding: 40px;
+    height: max-content;
+    width: 100%;
     background-color: #AF0F0F;
     grid-template-areas: 
-    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes"
-    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes";
+    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes"
+    "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes";
     align-items: center;
     justify-content: space-evenly;
-    gap:15px
+    gap:40px
 }
 
 .cardFilmes{
     display: flex;
     flex-direction: column;
-    height: 60vh;
-    width: 15vw;
+    height: 56vh;
+    width: 16vw;
     align-items: center;
     justify-content: center;
     gap: 10px;
@@ -37,21 +38,21 @@ header{
 
 .cardIMG{
     display: flex;
-    height: 240px;
-    width: 180px;
+    height: 35vh;
+    width: 12vw;
     background-color: white;
     overflow: hidden;
     border-radius: 25px;
 }
 
 .banner{
-    height: 250px;
-    width: 200px;
+    height: 35vh;
+    width: 12vw;
 }
 
 .infoFilme{
-    width: 180px;
-    height: 100px;
+    width: 10vw;
+    height: 12vh;
 }
 
 .titulo{

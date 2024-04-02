@@ -5,40 +5,42 @@ export function criarBarraPesquisa(){
 
     const menuBurguer = document.createElement('div')
     menuBurguer.classList.add('menuBurguer')
-
+    const buttonMenu = document.createElement('button')
+    buttonMenu.classList.add('buttonMenu')
     const imgMenuBurguer = document.createElement('img')
     imgMenuBurguer.src = './image/png/menu-burguer.png'
 
     const logo = document.createElement('div')
     logo.classList.add('logoPrincipal')
-
+    const buttonHome = document.createElement('button')
+    buttonHome.classList.add('buttonHome')
     const imgLogo = document.createElement('img')
     imgLogo.src = './image/png/acmeLogo.png'
 
     const campoPesquisa = document.createElement('div')
     campoPesquisa.classList.add('campoPesquisa')
-
     const inputPesquisa = document.createElement('input')
     inputPesquisa.classList.add('inputPesquisa')
 
+    const iconPesquisa = document.createElement('div')
+    iconPesquisa.classList.add('iconPesquisa')
+    const buttonPesquisa = document.createElement('button')
+    buttonPesquisa.classList.add('buttonPesquisa')
     const imgLupa = document.createElement('img')
     imgLupa.src = './image/png/lupa.png'
 
-    const iconPerfil = document.createElement('div')
-    iconPerfil.classList.add('iconPerfil')
+    barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
+    
+    menuBurguer.appendChild(buttonMenu)
+    buttonMenu.appendChild(imgMenuBurguer)
 
-    const buttonPerfil = document.createElement('button')
-    buttonPerfil.classList.add('buttonPerfil')
+    logo.appendChild(buttonHome)
+    buttonHome.appendChild(imgLogo)
 
-    const imgIconPerfil = document.createElement('img')
-    imgIconPerfil.src = './image/png/botão-perfil.png'
+    campoPesquisa.append(inputPesquisa,iconPesquisa)
 
-    barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil, buttonPerfil)
-    menuBurguer.appendChild(imgMenuBurguer)
-    logo.appendChild(imgLogo)
-    campoPesquisa.append(inputPesquisa,imgLupa)
-    iconPerfil.appendChild(buttonPerfil)
-    buttonPerfil.appendChild(imgIconPerfil)
+    iconPesquisa.appendChild(buttonPesquisa)
+    buttonPesquisa.appendChild(imgLupa)
 
     return barraPesquisa
 }
@@ -92,6 +94,28 @@ export async function preencherContainer() {
         const card = criarCard(filme)
         cardsHolder.append(card)
     });
+}
+
+const modalPerfil = document.getElementById('modalLogIns')
+
+//redireciona o usuário para a página de Login do CMS
+export function loginCMS() {
+    
+}
+
+//redireciona o usuário para a página de Cadastro do CMS
+export function signUpCMS() {
+    
+}
+
+//redireciona o usuário para a página de Login de usuário
+export function loginUser() {
+    
+}
+
+//redireciona o usuário para a página de Cadastro de usuário
+export function signUpUser() {
+    
 }
 
 window.onload = async () => {

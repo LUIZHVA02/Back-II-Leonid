@@ -1,14 +1,156 @@
 .barraPesquisa{
-    width: 99vw;
-    height: 15vh;
-    background-color: #336DAF;
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 12vh;
+    gap: 20px;
+}
+
+.menuBurguer{
+    padding: 0;
+    height: 72px;
+    width: 72px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+}
+
+.buttonMenu{
+    padding: 0;
+    height: 72px;
+    width: 72px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;    
+    border: none;
+}
+
+.buttonMenu img{
+    padding: 0;
+    height: 72px;
+    width: 72px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;    
+    border: none;
+}
+
+.logoPrincipal{
+    padding: 0;
+    height: 84px;
+    width: 210px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+}
+
+.buttonHome{
+    padding: 0;
+    height: 84px;
+    width: 210px;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;    
+    border-radius: 50px;
+    border: none;
+}
+
+.buttonHome img{
+    padding: 0;
+    height: 70px;
+    width: 160px;
+    align-items: center;
+    justify-content: center;   
+    border: none;
+}
+
+.campoPesquisa{
+    padding: 0;
+    height: 84px;
+    width: 72vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;    
+    border-radius: 50px;
+    border: none;
+    gap: 30px;
+}
+
+.inputPesquisa{
+    padding: 1%;
+    height: 64px;
+    width: 64vw;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+
+.iconPesquisa{
+    padding: 0;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;    
+    border-radius: 100%;
+}
+
+.buttonPesquisa{
+    padding: 0;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;    
+    border: none;
+}
+
+.buttonPesquisa img{
+    padding: 0;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;    
+    border: none;
+}
+
+.iconPerfil{
+    padding: 0;
+    height: 84px;
+    width: 84px;
+    align-items: center;
+    justify-content: center;
 }
 
 .buttonPerfil{
-    height: 75px;
-    width: 75px;
+    padding: 0;
+    height: 84px;
+    width: 84px;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    border: none;
+}
+
+.buttonPerfil img{
+    padding: 0;
+    height: 84px;
+    width: 84px;
+    align-items: center;
+    justify-content: center;
     border-radius: 100%;
 }
