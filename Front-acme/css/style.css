@@ -1,3 +1,9 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 header{
     width: 99vw;
     height: 10vh;
@@ -14,14 +20,14 @@ header{
     "cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes cardFilmes";
     align-items: center;
     justify-content: space-evenly;
-    gap:20px
+    gap:15px
 }
 
 .cardFilmes{
     display: flex;
     flex-direction: column;
-    height: 400px;
-    width: 250px;
+    height: 60vh;
+    width: 15vw;
     align-items: center;
     justify-content: center;
     gap: 10px;
