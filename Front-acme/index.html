@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/main.js" type="module" defer></script>
+  <script src="./js/tratamento.js" defer></script>
   <link rel="stylesheet" href="./css/barraPesquisa.css">
   <link rel="stylesheet" href="./css/style.css">
   <title>ACME-FILMES</title>
@@ -35,16 +36,16 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Modal 1</h1>
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Em qual tipo de conta você irá fazer login?</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="modalLogIns">
-            <button class="loginCMS btn btn-primary"></button>
-            <button class="loginUser btn btn-primary"></button>
+            <button class="loginCMS btn btn-primary">Login Corporativo</button>
+            <button class="loginUser btn btn-primary">Login Comum</button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Open second modal</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Fazer Cadastro</button>
           </div>
         </div>
       </div>
@@ -53,16 +54,16 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Modal 2</h1>
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Em qual tipo de conta você irá cadastrar-se</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body" id="modalSignUps">
-            <button class="signUpCMS btn btn-primary"></button>
-            <button class="signUpUser btn btn-primary"></button>
+            <button class="signUpCMS btn btn-primary">Cadastro Corporativo</button>
+            <button class="signUpUser btn btn-primary">Cadastro Comum</button>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Back to first</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Fazer Login</button>
           </div>
         </div>
       </div>
