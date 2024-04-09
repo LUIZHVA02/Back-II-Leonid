@@ -32,42 +32,7 @@
     <div class="cardsHolder" id="cardsHolder">
     </div>
 
-    <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Em qual tipo de conta você irá fazer login?</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="modalLogIns">
-            <button class="loginCMS btn btn-primary">Login Corporativo</button>
-            <button class="loginUser btn btn-primary">Login Comum</button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2" data-bs-toggle="modal">Fazer Cadastro</button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Em qual tipo de conta você irá cadastrar-se</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body" id="modalSignUps">
-            <button class="signUpCMS btn btn-primary">Cadastro Corporativo</button>
-            <button class="signUpUser btn btn-primary">Cadastro Comum</button>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal">Fazer Login</button>
-          </div>
-        </div>
-      </div>
-    </div>
+    
 
   </main>
 
@@ -81,5 +46,48 @@
     integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
     crossorigin="anonymous"></script>
 </body>
+<div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel"
+      tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Em qual tipo de conta você irá fazer login?</h1>
+            <button type="button" class="btn-close" id="btn_cls_prime" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalLogIns">
+            <button class="loginCMS btn btn-secondary btn-lg">Login Corporativo</button>
+            <button class="loginUser btn btn-primary btn-lg">Login Comum</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary" data-bs-target="#exampleModalToggle2"
+              data-bs-toggle="modal">Desejo Me Cadastrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
 
+
+    <div class="modal fade" id="exampleModalToggle2" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2"
+      tabindex="-1">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalToggleLabel2">Em qual tipo de conta você irá cadastrar-se</h1>
+            <button type="button" class="btn-close" id="btn_cls_second" data-bs-dismiss="modal"
+              aria-label="Close"></button>
+          </div>
+          <div class="modal-body" id="modalSignUps">
+            <button class="signUpCMS btn btn-secondary btn-lg">Cadastro Corporativo</button>
+            <button class="signUpUser btn btn-primary btn-lg">Cadastro Comum</button>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+            <button type="button" class="btn btn-primary"  data-bs-target="#exampleModalToggle"
+              data-bs-toggle="modal">Desejo Fazer Login</button>
+          </div>
+        </div>
+      </div>
+    </div>
 </html>
