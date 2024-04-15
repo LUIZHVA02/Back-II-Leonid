@@ -40,7 +40,6 @@ header{
     display: flex;
     height: 35vh;
     width: 12vw;
-    background-color: white;
     overflow: hidden;
     border-radius: 25px;
 }
@@ -48,6 +47,14 @@ header{
 .banner{
     height: 35vh;
     width: 12vw;
+}
+.avaliacoes{
+    
+}
+.starIMG{
+    background-image: url("../image/png/Star.png");
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 .infoFilme{
@@ -74,5 +81,11 @@ header{
     font-family: 'Inika';
     font-style: normal;
     font-weight: 700;
+}
+
+.modalLogin{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 }
 
