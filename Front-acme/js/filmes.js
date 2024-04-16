@@ -3,7 +3,6 @@ export async function getFilmes() {
     const response = await fetch(url)
     const data = await response.json()
     return data.filmes
-
 }
 
 export async function getFilme(id) {

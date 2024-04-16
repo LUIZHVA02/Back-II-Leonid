@@ -38,6 +38,7 @@
 }
 
 .logoPrincipal{
+    display: flex;
     padding: 0;
     height: 84px;
     width: 210px;
@@ -47,6 +48,7 @@
 }
 
 .buttonHome{
+    display: flex;
     padding: 0;
     height: 84px;
     width: 210px;
@@ -60,9 +62,7 @@
 .buttonHome img{
     padding: 0;
     height: 70px;
-    width: 160px;
-    align-items: center;
-    justify-content: center;   
+    width: 160px;  
     border: none;
 }
 

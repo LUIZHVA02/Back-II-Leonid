@@ -1,0 +1,49 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+header{
+    width: 100%;
+    height: fit-content;
+    background-color: #336DAF;
+}
+
+main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #AF0F0F;
+    height: 88vh;
+}
+
+.containerLista{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 95vw;
+    background-color: #336DAF;
+    border-radius: 10px;
+}
+
+.holderLista{
+    padding: 10px 10px 10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 78vh;
+    width: 94vw;
+    background-color: #AF0F0F;
+    border-radius: 10px;
+}
+
+.lista{
+    height: 76vh;
+    width: 94vw;
+    overflow-y: auto;
+    background-color: #AF0F0F;
+    border-radius: 10px;
+}

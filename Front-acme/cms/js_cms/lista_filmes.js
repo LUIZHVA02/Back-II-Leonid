@@ -1,6 +1,5 @@
-import { getFilmes, getFilme, postFilme } from "./filmes.js"
-import { tratarData,tratarDuracao } from "./tratamento.js"
-
+import { getFilmes, getFilme, postFilme } from "../../js/filmes.js"
+import { tratarData, tratarDuracao } from "./tratamento_cms.js"
 
 export function criarBarraPesquisa(){
     const barraPesquisa = document.getElementById('barraPesquisa')
@@ -10,14 +9,14 @@ export function criarBarraPesquisa(){
     const buttonMenu = document.createElement('button')
     buttonMenu.classList.add('buttonMenu')
     const imgMenuBurguer = document.createElement('img')
-    imgMenuBurguer.src = './image/png/menu-burguer.png'
+    imgMenuBurguer.src = '../../image/png/menu-burguer.png'
 
     const logo = document.createElement('div')
     logo.classList.add('logoPrincipal')
     const buttonHome = document.createElement('button')
     buttonHome.classList.add('buttonHome')
     const imgLogo = document.createElement('img')
-    imgLogo.src = './image/png/acmeLogo.png'
+    imgLogo.src = '../../image/png/acmeLogo.png'
 
     const campoPesquisa = document.createElement('div')
     campoPesquisa.classList.add('campoPesquisa')
@@ -29,9 +28,9 @@ export function criarBarraPesquisa(){
     const buttonPesquisa = document.createElement('button')
     buttonPesquisa.classList.add('buttonPesquisa')
     const imgLupa = document.createElement('img')
-    imgLupa.src = './image/png/lupa.png'
+    imgLupa.src = '../../image/png/lupa.png'
 
-    barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
+    barraPesquisa.append(menuBurguer, logo, campoPesquisa)
     
     menuBurguer.appendChild(buttonMenu)
     buttonMenu.appendChild(imgMenuBurguer)
@@ -47,49 +46,41 @@ export function criarBarraPesquisa(){
     return barraPesquisa
 }
 
-export function criarCard(filme) {
-
-    const card = document.createElement('div')
-    card.classList.add('cardFilmes')
-
-    const cardIMG = document.createElement('div')
-    cardIMG.classList.add('cardIMG')
-    cardIMG.style.backgroundImage = `url(${filme.foto_capa})`
-    cardIMG.style.backgroundSize = `cover`
-
-
-    const avaliacoes = document.createElement('div')
-    avaliacoes.classList.add('avaliacoes')
-
-    const numEstrelas = document.createElement('h1')
-    numEstrelas.classList.add('numEstrelas')
-
-    const starIMG = document.createElement('img')
-    starIMG.classList.add('starIMG')
-
-
-
-    const infoFilme = document.createElement('div')
-    infoFilme.classList.add('infoFilme')
-
-    const titulo = document.createElement('h2')
-    titulo.classList.add('titulo')
-    titulo.textContent = filme.nome
-
-    const duracao = document.createElement('time')
-    duracao.classList.add('duracao')
-    duracao.textContent = filme.duracao
-
-    const dtLanca = document.createElement('data')
-    dtLanca.classList.add('dtLanca')
-    dtLanca.textContent = filme.data_lancamento
-
-    card.append(cardIMG, infoFilme)
-    cardIMG.append( avaliacoes)
-    avaliacoes.append(numEstrelas, starIMG)
-    infoFilme.append(titulo, duracao, dtLanca)
+function criarItensLista(filme) {
+    const linha_lista_filmes = document.createElement('ul')
+    linha_lista_filmes.classList.add("list-group", "list-group-horizontal", "linha_lista_filmes")
     
-    return card
+    const idFilme = document.createElement('li')
+    idFilme.classList.add("list-group-item", "idFilme")
+    idFilme.textContent = filme.id
+
+    const nomeFilme = document.createElement('li')
+    nomeFilme.classList.add("list-group-item", "nomeFilme")
+    nomeFilme.textContent = filme.nome
+
+    const duracaoFilme = document.createElement('li')
+    duracaoFilme.classList.add("list-group-item", "duracaoFilme")
+    duracaoFilme.textContent = tratarDuracao(filme.duracao)
+
+    const dataLancamentoFilme = document.createElement('li')
+    dataLancamentoFilme.classList.add("list-group-item", "dataLancamentoFilme")
+    dataLancamentoFilme.textContent = tratarData(filme.data_lancamento)
+
+    const acoes = document.createElement('li')
+    acoes.classList.add("list-group-item", "acoes")
+
+    const btnEditar = document.createElement('button')
+    btnEditar.classList.add("btnEditar")
+
+
+    const btnApagar = document.createElement('button')
+    btnApagar.classList.add("btnApagar")
+
+
+    linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme, acoes)
+    acoes.append(btnEditar, btnEditar)
+
+    return linha_lista_filmes
 }
 
 function criarPaginaFilme(filme) {
@@ -205,44 +196,22 @@ function criarPaginaFilme(filme) {
     return cardPaginaFilmes
 }
 
-export async function preencherContainer() {
-    const cardsHolder = document.getElementById("cardsHolder")
-    const modalPagina = document.getElementById("modalPagina")
+export async function preencherLista() {
+    const lista_filmes = document.getElementById("lista_filmes")
     const filmes = await getFilmes()
 
+
+
     filmes.forEach(filme => {
-        const card = criarCard(filme)
-        cardsHolder.appendChild(card)
-        const pagina = criarPaginaFilme(filme)
-        modalPagina.append(pagina)
+        const linha_lista = criarItensLista(filme)
+        lista_filmes.appendChild(linha_lista)
     });
-}
-
-//redireciona o usuário para a página de Login do CMS
-export function loginCMS() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro do CMS
-export function signUpCMS() {
-    
-}
-
-//redireciona o usuário para a página de Login de usuário
-export function loginUser() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro de usuário
-export function signUpUser() {
-    
 }
 
 window.onload = async () => {
 
     const filme = await getFilmes()
     criarBarraPesquisa()
-    criarCard(filme)
-    preencherContainer()
+    preencherLista()
     console.log(filme)
 }
