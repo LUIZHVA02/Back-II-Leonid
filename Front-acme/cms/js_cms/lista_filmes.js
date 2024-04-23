@@ -1,4 +1,4 @@
-import { getFilmes, getFilme, postFilme } from "../../js/filmes.js"
+import { getFilmes, getFilme, postFilme, deletefilme } from "../../js/filmes.js"
 import { tratarData, tratarDuracao } from "./tratamento_cms.js"
 
 export function criarBarraPesquisa(){
@@ -48,40 +48,71 @@ export function criarBarraPesquisa(){
 
 function criarItensLista(filme) {
     const linha_lista_filmes = document.createElement('ul')
-    linha_lista_filmes.classList.add("list-group", "list-group-horizontal", "linha_lista_filmes")
+    linha_lista_filmes.classList.add("list-group", "list-group-horizontal", "linha_lista_filmes", "text-center")
     
     const idFilme = document.createElement('li')
-    idFilme.classList.add("list-group-item", "idFilme")
+    idFilme.classList.add("list-group-item", "idFilme", "col-1")
     idFilme.textContent = filme.id
 
     const nomeFilme = document.createElement('li')
-    nomeFilme.classList.add("list-group-item", "nomeFilme")
+    nomeFilme.classList.add("list-group-item", "nomeFilme", "col-3")
     nomeFilme.textContent = filme.nome
 
     const duracaoFilme = document.createElement('li')
-    duracaoFilme.classList.add("list-group-item", "duracaoFilme")
+    duracaoFilme.classList.add("list-group-item", "duracaoFilme", "col-3")
     duracaoFilme.textContent = tratarDuracao(filme.duracao)
 
     const dataLancamentoFilme = document.createElement('li')
-    dataLancamentoFilme.classList.add("list-group-item", "dataLancamentoFilme")
+    dataLancamentoFilme.classList.add("list-group-item", "dataLancamentoFilme", "col-3")
     dataLancamentoFilme.textContent = tratarData(filme.data_lancamento)
 
     const acoes = document.createElement('li')
-    acoes.classList.add("list-group-item", "acoes")
+    acoes.classList.add("list-group-item", "acoes", "col-2")
+    acoes.style.display = "flex"
+    acoes.style.flexDirection = "row"
+    acoes.style.alignItems = "center"
+    acoes.style.justifyContent = "space-evenly"
 
     const btnEditar = document.createElement('button')
-    btnEditar.classList.add("btnEditar")
+    btnEditar.classList.add("btnEditar", "btn", "btn-primary")
+    btnEditar.style.height = "64px"
+    btnEditar.style.width = "64px"
+    btnEditar.style.display = "flex"
+    btnEditar.style.alignItems = "center"
+    btnEditar.style.justifyContent = "center"
+
+    const divEditarIMG = document.createElement('div')
+    divEditarIMG.style.backgroundImage = `url("../../image/png/editar.png")`
+    divEditarIMG.style.backgroundSize = `contain`
+    divEditarIMG.style.backgroundRepeat = "no-repeat"
+    divEditarIMG.style.height = "48px"
+    divEditarIMG.style.width = "48px"
 
 
     const btnApagar = document.createElement('button')
-    btnApagar.classList.add("btnApagar")
+    btnApagar.classList.add("btnApagar", "btn", "btn-danger")
+    btnApagar.style.height = "64px"
+    btnApagar.style.width = "64px"
+    btnApagar.style.display = "flex"
+    btnApagar.style.alignItems = "center"
+    btnApagar.style.justifyContent = "center"
+    
+    const divApagarIMG = document.createElement('div')
+    divApagarIMG.style.backgroundImage = 'url(../../image/png/lixeira_branca.png)'
+    divApagarIMG.style.backgroundSize = `contain`
+    divApagarIMG.style.backgroundRepeat = "no-repeat"
+    divApagarIMG.style.height = "48px"
+    divApagarIMG.style.width = "48px"
 
 
     linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme, acoes)
-    acoes.append(btnEditar, btnEditar)
+    acoes.append(btnEditar, btnApagar)
+    btnEditar.appendChild(divEditarIMG)
+    btnApagar.appendChild(divApagarIMG)
 
     return linha_lista_filmes
 }
+
 
 function criarPaginaFilme(filme) {
     const cardPaginaFilmes = document.createElement('div')

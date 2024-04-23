@@ -1,6 +1,5 @@
 import { getFilmes, getFilme, postFilme } from "./filmes.js"
-import { tratarData,tratarDuracao } from "./tratamento.js"
-
+import { tratarData, tratarDuracao } from "../cms/js_cms/tratamento_cms.js"
 
 export function criarBarraPesquisa(){
     const barraPesquisa = document.getElementById('barraPesquisa')
@@ -78,11 +77,11 @@ export function criarCard(filme) {
 
     const duracao = document.createElement('time')
     duracao.classList.add('duracao')
-    duracao.textContent = filme.duracao
+    duracao.textContent = tratarDuracao(filme.duracao)
 
     const dtLanca = document.createElement('data')
     dtLanca.classList.add('dtLanca')
-    dtLanca.textContent = filme.data_lancamento
+    dtLanca.textContent = tratarData(filme.data_lancamento)
 
     card.append(cardIMG, infoFilme)
     cardIMG.append( avaliacoes)
@@ -144,7 +143,7 @@ function criarPaginaFilme(filme) {
 
     const dtLancaPagina = document.createElement('data')
     dtLancaPagina.classList.add('dtLancaPagina')
-    dtLancaPagina.textContent = filme.data_lancamento
+    dtLancaPagina.textContent = tratarData(filme.data_lancamento)
 
     
 
@@ -157,7 +156,7 @@ function criarPaginaFilme(filme) {
 
     const dtRelancaPagina = document.createElement('data')
     dtRelancaPagina.classList.add('dtRelancaPagina')
-    dtRelancaPagina.textContent = filme.data_relancamento
+    dtRelancaPagina.textContent = tratarData(filme.data_relancamento)
 
 
 
@@ -170,7 +169,7 @@ function criarPaginaFilme(filme) {
 
     const duracaoPagina = document.createElement('time')
     duracaoPagina.classList.add('duracaoPagina')
-    duracaoPagina.textContent = filme.duracao
+    duracaoPagina.textContent = tratarDuracao(filme.duracao)
 
 
     const valorECompra = document.createElement('div')
@@ -216,26 +215,6 @@ export async function preencherContainer() {
         const pagina = criarPaginaFilme(filme)
         modalPagina.append(pagina)
     });
-}
-
-//redireciona o usuário para a página de Login do CMS
-export function loginCMS() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro do CMS
-export function signUpCMS() {
-    
-}
-
-//redireciona o usuário para a página de Login de usuário
-export function loginUser() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro de usuário
-export function signUpUser() {
-    
 }
 
 window.onload = async () => {
