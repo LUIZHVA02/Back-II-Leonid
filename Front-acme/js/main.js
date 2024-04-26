@@ -50,7 +50,6 @@ export function criarCard(filme) {
 
     const card = document.createElement('div')
     card.classList.add('cardFilmes')
-    let cardID = filme.id
 
     const cardIMG = document.createElement('div')
     cardIMG.classList.add('cardIMG')
@@ -84,7 +83,7 @@ export function criarCard(filme) {
     dtLanca.classList.add('dtLanca')
     dtLanca.textContent = filme.data_lancamento
 
-    card.append(cardIMG, infoFilme, cardID)
+    card.append(cardIMG, infoFilme)
     cardIMG.append( avaliacoes)
     avaliacoes.append(numEstrelas, starIMG)
     infoFilme.append(titulo, duracao, dtLanca)
@@ -207,36 +206,14 @@ function criarPaginaFilme(filme) {
 
 export async function preencherContainer() {
     const cardsHolder = document.getElementById("cardsHolder")
-    const modalPagina = document.getElementById('modalPagina')
     const filmes = await getFilmes()
 
     filmes.forEach(filme => {
         const card = criarCard(filme)
         cardsHolder.append(card)
-        const pagina = criarPaginaFilme(filme)
-        modalPagina.append(pagina)
     });
 }
 
-//redireciona o usuário para a página de Login do CMS
-export function loginCMS() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro do CMS
-export function signUpCMS() {
-    
-}
-
-//redireciona o usuário para a página de Login de usuário
-export function loginUser() {
-    
-}
-
-//redireciona o usuário para a página de Cadastro de usuário
-export function signUpUser() {
-    
-}
 
 window.onload = async () => {
 
