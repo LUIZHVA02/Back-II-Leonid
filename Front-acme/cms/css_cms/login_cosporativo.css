@@ -1,0 +1,163 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    background-color: #AF0F0F;
+}
+
+.legendaLogin {
+    width: 650px;
+    color: #fff;
+    font-size: 72px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.inputsContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 700px;
+    width: 500px;
+    background-color: #336DAF;
+    border-radius: 25px;
+}
+
+.logoLogin {
+    display: flex;
+    padding: 0;
+    height: 100px;
+    width: 250px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50px;
+    border: none;
+}
+
+.logoLoginIMG {
+    height: 90px;
+    width: 200px;
+}
+
+.inputsLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 300px;
+    width: 350px;
+}
+
+.inputEmail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    width: 340px;
+}
+
+.emailLoginIMG {
+    height: 56px;
+    width: 72px;
+}
+
+#inputEmailLoginID {
+    padding: 8px;
+    height: 72px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputEmailLoginID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.inputSenhaLogin {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 90px;
+    width: 340px;
+}
+
+.senhaLoginIMG {
+    height: 72px;
+    width: 56px;
+}
+
+#inputSenhaLoginID {
+    padding: 8px;
+    height: 72px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputSenhaLoginID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.btnEntrar{
+    height: 80px;
+    width: 300px;
+    background-color: #AF0F0F;
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+}
+
+.linkCadastro{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+}
