@@ -1,7 +1,8 @@
 import { getFilmes, getFilme, postFilme } from "./filmes.js"
-import { tratarData, tratarDuracao } from "../cms/js_cms/tratamento_cms.js"
+import { tratarData, tratarDuracao } from "./tratamento.js"
 
-export function criarBarraPesquisa(){
+export function criarBarraPesquisa() {
+
     const barraPesquisa = document.getElementById('barraPesquisa')
 
     const menuBurguer = document.createElement('div')
@@ -31,14 +32,14 @@ export function criarBarraPesquisa(){
     imgLupa.src = './image/png/lupa.png'
 
     barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
-    
+
     menuBurguer.appendChild(buttonMenu)
     buttonMenu.appendChild(imgMenuBurguer)
 
     logo.appendChild(buttonHome)
     buttonHome.appendChild(imgLogo)
 
-    campoPesquisa.append(inputPesquisa,iconPesquisa)
+    campoPesquisa.append(inputPesquisa, iconPesquisa)
 
     iconPesquisa.appendChild(buttonPesquisa)
     buttonPesquisa.appendChild(imgLupa)
@@ -77,17 +78,25 @@ export function criarCard(filme) {
 
     const duracao = document.createElement('time')
     duracao.classList.add('duracao')
-    duracao.textContent = tratarDuracao(filme.duracao)
+    if (filme.duracao != undefined) {
+        duracao.textContent = tratarDuracao(filme.duracao)
+    } else {
+        duracao.textContent = filme.duracao
+    }
 
     const dtLanca = document.createElement('data')
     dtLanca.classList.add('dtLanca')
-    dtLanca.textContent = tratarData(filme.data_lancamento)
+    if (filme.data_lancamento != undefined) {
+        dtLanca.textContent = tratarData(filme.data_lancamento)
+    } else {
+        dtLanca.textContent = filme.data_lancamento
+    }
 
     card.append(cardIMG, infoFilme)
-    cardIMG.append( avaliacoes)
+    cardIMG.append(avaliacoes)
     avaliacoes.append(numEstrelas, starIMG)
     infoFilme.append(titulo, duracao, dtLanca)
-    
+
     return card
 }
 
@@ -99,7 +108,7 @@ function criarPaginaFilme(filme) {
     cardPaginaIMG.classList.add('cardPaginaIMG')
     cardPaginaIMG.style.backgroundImage = `url(${filme.foto_capa})`
     cardPaginaIMG.style.backgroundSize = `cover`
-    
+
     const classificacao = document.createElement('div')
     classificacao.classList.add('classificacao')
 
@@ -134,7 +143,7 @@ function criarPaginaFilme(filme) {
 
 
 
-    const legendaComDtLancaPagina= document.createElement('div')
+    const legendaComDtLancaPagina = document.createElement('div')
     legendaComDtLancaPagina.classList.add('legendaComDtRelancaPagina')
 
     const legendadtLancaPagina = document.createElement('h1')
@@ -143,11 +152,15 @@ function criarPaginaFilme(filme) {
 
     const dtLancaPagina = document.createElement('data')
     dtLancaPagina.classList.add('dtLancaPagina')
-    dtLancaPagina.textContent = tratarData(filme.data_lancamento)
+    if (filme.data_lancamento != undefined) {
+        dtLancaPagina.textContent = tratarData(filme.data_lancamento)
+    } else {
+        dtLancaPagina.textContent = filme.data_lancamento
+    }
 
-    
 
-    const legendaComDtRelancaPagina= document.createElement('div')
+
+    const legendaComDtRelancaPagina = document.createElement('div')
     legendaComDtRelancaPagina.classList.add('legendaComDtRelancaPagina')
 
     const legendadtRelancaPagina = document.createElement('h1')
@@ -156,7 +169,11 @@ function criarPaginaFilme(filme) {
 
     const dtRelancaPagina = document.createElement('data')
     dtRelancaPagina.classList.add('dtRelancaPagina')
-    dtRelancaPagina.textContent = tratarData(filme.data_relancamento)
+    if (filme.data_relancamento != undefined) {
+        dtRelancaPagina.textContent = tratarData(filme.data_relancamento)
+    } else {
+        dtRelancaPagina.textContent = filme.data_relancamento
+    }
 
 
 
@@ -169,8 +186,11 @@ function criarPaginaFilme(filme) {
 
     const duracaoPagina = document.createElement('time')
     duracaoPagina.classList.add('duracaoPagina')
-    duracaoPagina.textContent = tratarDuracao(filme.duracao)
-
+    if (filme.duracao != undefined) {
+        duracaoPagina.textContent = tratarDuracao(filme.duracao)
+    } else {
+        duracaoPagina.textContent = filme.duracao
+    }
 
     const valorECompra = document.createElement('div')
     valorECompra.classList.add('valorECompra')
@@ -193,41 +213,30 @@ function criarPaginaFilme(filme) {
     cardPaginaFilmes.append(cardPaginaIMG, infoFilmePagina)
     cardPaginaIMG.append(classificacao, avaliacoes)
     avaliacoes.append(numEstrelas, starIMG)
-    infoFilmePagina.append(tituloPagina,legendaComSinopsePagina, legendaComDtLancaPagina, legendaComDtRelancaPagina,legendaComDuracao, valorECompra)
-    legendaComSinopsePagina.append(legendaSinopsePagina,sinopsePagina)
-    legendaComDtLancaPagina.append(legendadtLancaPagina,dtLancaPagina)
-    legendaComDtRelancaPagina.append(legendadtRelancaPagina,dtRelancaPagina)
-    legendaComDuracao.append(legendaDuracao,duracaoPagina)
-    valorECompra.append(legendaComValorUnitario,btn_comprar)
-    legendaComValorUnitario.append(legendaValor,valorUnitario)
+    infoFilmePagina.append(tituloPagina, legendaComSinopsePagina, legendaComDtLancaPagina, legendaComDtRelancaPagina, legendaComDuracao, valorECompra)
+    legendaComSinopsePagina.append(legendaSinopsePagina, sinopsePagina)
+    legendaComDtLancaPagina.append(legendadtLancaPagina, dtLancaPagina)
+    legendaComDtRelancaPagina.append(legendadtRelancaPagina, dtRelancaPagina)
+    legendaComDuracao.append(legendaDuracao, duracaoPagina)
+    valorECompra.append(legendaComValorUnitario, btn_comprar)
+    legendaComValorUnitario.append(legendaValor, valorUnitario)
 
     return cardPaginaFilmes
 }
 
 export async function preencherContainer() {
     const cardsHolder = document.getElementById("cardsHolder")
-<<<<<<< HEAD
-=======
     const modalPagina = document.getElementById("modalPagina")
->>>>>>> 6bba0c3a9d2dc43eb49dbc2b12ec1350023f108a
     const filmes = await getFilmes()
 
     filmes.forEach(filme => {
         const card = criarCard(filme)
-<<<<<<< HEAD
-        cardsHolder.append(card)
-    });
-}
-
-
-=======
         cardsHolder.appendChild(card)
         const pagina = criarPaginaFilme(filme)
         modalPagina.append(pagina)
     });
 }
 
->>>>>>> 6bba0c3a9d2dc43eb49dbc2b12ec1350023f108a
 window.onload = async () => {
 
     const filme = await getFilmes()
