@@ -119,6 +119,56 @@
   </div>
 </div> -->
 
+<div class="modal-dialog modal-xl modal-dialog-centered">
+  <div class="modal-content">
+    <div class="modal-body">
+      <div class="botao-sair">
+        <div class="exit">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+      </div>
+      <div class="cardPaginaFilmes">
+        <div class="cardPaginaIMG">
+          <img src="${filme.foto_capa}" alt="">
+        </div>
+        <div class="classificacao">
+          <img src="${filme.imagem}" alt="">
+        </div>
+        <div class="avaliacoes">
+          <h1 class="numEstrelas"></h1>
+          <img class="starIMG">
+        </div>
 
+        <div class="infoFilmePagina">
+          <h2 class="tituloPagina">${filme.nome}</h2>
+          <div class="legendaComSinopsePagina">
+            <h1 class="legendadtLancaPagina">Sinopse:</h1>
+            <p class="sinopsePagina">${filme.sinopse}</p>
+          </div>
+          <div class="legendaComDtRelancaPagina">
+            <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
+            <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
+          </div>
+          <div class="legendaComDtRelancaPagina">
+            <h1 class="legendadtRelancaPagina">Data Relançamento:</h1>
+            <data class="dtRelancaPagina">${tratarData(filme.data_relancamento)}</data>
+          </div>
+          <div class="legendaComDuracao">
+            <h1 class="legendaDuracao">Duração:</h1>
+            <time class="duracaoPagina">${tratarDuracao(filme.duracao)}</time>
+          </div>
+          <div class="valorECompra">
+            <div class="legendaComValorUnitario">
+              <h1 class="legendaValor">Valor Unitário:</h1>
+              <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
+            </div>
+            <button class="btn_comprar">Comprar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
 
 </html>
