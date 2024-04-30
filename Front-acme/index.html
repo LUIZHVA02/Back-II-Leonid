@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="./js/main.js" type="module" defer></script>
+  <script src="./js/modais.js" defer></script>
   <link rel="stylesheet" href="./landing_page/css/barraPesquisa.css">
   <link rel="stylesheet" href="./landing_page/css/style.css">
   <title>ACME-FILMES</title>
@@ -20,7 +21,7 @@
     <div class="barraPesquisa" id="barraPesquisa">
 
       <div class="iconPerfil" id="iconPerfil">
-        <button class="buttonPerfil" id="buttonPerfil" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        <button class="buttonPerfil" id="buttonPerfil" data-bs-toggle="modal" data-bs-target="#exampleModalLogin">
           <img src="./image/png/botão-perfil.png" alt="perfil">
         </button>
       </div>
@@ -43,7 +44,7 @@
     crossorigin="anonymous"></script>
 </body>
 
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="exampleModalLogin" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
@@ -62,7 +63,7 @@
   </div>
 </div>
 
-<!-- Button trigger modal -->
+<!-- Button trigger modal
 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal1">
   Launch demo modal
 </button>
@@ -75,7 +76,40 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body modalPagina" id="modalPagina">
-
+        <div class="cardPaginaFilmes">
+          <div class="cardPaginaIMG"
+            style="background-image: url(&quot;https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg&quot;); background-size: cover;">
+            <div class="classificacao"></div>
+            <div class="avaliacoes">
+              <h1 class="numEstrelas"></h1><img class="starIMG">
+            </div>
+          </div>
+          <div class="infoFilmePagina">
+            <h2 class="tituloPagina"></h2>
+            <div class="legendaComSinopsePagina">
+              <h1 class="legendadtLancaPagina">Sinopse:</h1>
+              <p class="sinopsePagina"></p>
+            </div>
+            <div class="legendaComDtRelancaPagina">
+              <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
+              <data class="dtLancaPagina"></data>
+            </div>
+            <div class="legendaComDtRelancaPagina">
+              <h1 class="legendadtRelancaPagina">Data Relançamento:</h1>
+              <data class="dtRelancaPagina"></data>
+            </div>
+            <div class="legendaComDuracao">
+              <h1 class="legendaDuracao">Duração:</h1>
+              <time class="duracaoPagina"></time>
+            </div>
+            <div class="valorECompra">
+              <div class="legendaComValorUnitario">
+                <h1 class="legendaValor">Valor Unitário:</h1>
+                <h1 class="valorUnitarioPagina"></h1>
+              </div><button class="btn_comprar">Comprar</button>
+            </div>
+          </div>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -83,6 +117,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
+
+
 
 </html>

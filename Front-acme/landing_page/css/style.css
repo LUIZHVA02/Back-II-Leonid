@@ -31,6 +31,19 @@ main {
     gap:40px
 }
 
+
+.cards{
+    display: flex;
+    flex-direction: column;
+    height: 56vh;
+    width: 16vw;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    background-color: #336DAF;
+    border-radius: 25px;
+}
+
 .cardFilmes{
     display: flex;
     flex-direction: column;

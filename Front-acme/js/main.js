@@ -49,8 +49,19 @@ export function criarBarraPesquisa() {
 
 export function criarCard(filme) {
 
-    const card = document.createElement('div')
-    card.classList.add('cardFilmes')
+    const cards = document.createElement('div')
+    cards.classList.add('cards')
+
+    cards.addEventListener('click', (event) => {
+        event.stopPropagation()
+        const modal = criarModal(filme)
+        document.body.appendChild(modal)
+        var myModal = new bootstrap.Modal(modal)
+        myModal.show()
+    })
+
+    const cardFilmes = document.createElement('div')
+    cardFilmes.classList.add('cardFilmes')
 
     const cardIMG = document.createElement('div')
     cardIMG.classList.add('cardIMG')
@@ -92,148 +103,129 @@ export function criarCard(filme) {
         dtLanca.textContent = filme.data_lancamento
     }
 
-    card.append(cardIMG, infoFilme)
+    cards.appendChild(cardFilmes)
+    cardFilmes.append(cardIMG, infoFilme)
     cardIMG.append(avaliacoes)
     avaliacoes.append(numEstrelas, starIMG)
     infoFilme.append(titulo, duracao, dtLanca)
 
-    return card
+    return cards
 }
 
-function criarPaginaFilme(filme) {
-    const cardPaginaFilmes = document.createElement('div')
-    cardPaginaFilmes.classList.add('cardPaginaFilmes')
+function criarModal(filme) {
+    const modal = document.createElement('div')
+    modal.classList.add('modal', 'fade')
+    modal.setAttribute('tabindex', '-1')
+    modal.setAttribute('aria-labelledby', 'exampleModalLabel')
+    modal.setAttribute('aria-hidden', 'true')
 
-    const cardPaginaIMG = document.createElement('div')
-    cardPaginaIMG.classList.add('cardPaginaIMG')
-    cardPaginaIMG.style.backgroundImage = `url(${filme.foto_capa})`
-    cardPaginaIMG.style.backgroundSize = `cover`
+    // Conteúdo do modal
+    if (filme.data_lancamento && filme.data_relancamento && filme.duracao) {
+        modal.innerHTML = `
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="botao-sair">
+          <div class="exit">
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+        </div>
+        <div class="cardPaginaFilmes">
+  <div class="cardPaginaIMG"><img src="${filme.foto_capa}" alt=""></div>
+  <div class="classificacao"><img src="${filme.imagem}" alt=""></div>
+  <div class="avaliacoes">
+    <h1 class="numEstrelas"></h1>
+    <img class="starIMG">
+  </div>
 
-    const classificacao = document.createElement('div')
-    classificacao.classList.add('classificacao')
-
-    const avaliacoes = document.createElement('div')
-    avaliacoes.classList.add('avaliacoes')
-
-    const numEstrelas = document.createElement('h1')
-    numEstrelas.classList.add('numEstrelas')
-
-    const starIMG = document.createElement('img')
-    starIMG.classList.add('starIMG')
-
-
-
-    const infoFilmePagina = document.createElement('div')
-    infoFilmePagina.classList.add('infoFilmePagina')
-
-    const tituloPagina = document.createElement('h2')
-    tituloPagina.classList.add('tituloPagina')
-    tituloPagina.textContent = filme.nome
-
-    const legendaComSinopsePagina = document.createElement('div')
-    legendaComSinopsePagina.classList.add('legendaComSinopsePagina')
-
-    const legendaSinopsePagina = document.createElement('h1')
-    legendaSinopsePagina.classList.add('legendadtLancaPagina')
-    legendaSinopsePagina.textContent = "Sinopse:"
-
-    const sinopsePagina = document.createElement('p')
-    sinopsePagina.classList.add('sinopsePagina')
-    sinopsePagina.textContent = filme.sinopse
-
-
-
-    const legendaComDtLancaPagina = document.createElement('div')
-    legendaComDtLancaPagina.classList.add('legendaComDtRelancaPagina')
-
-    const legendadtLancaPagina = document.createElement('h1')
-    legendadtLancaPagina.classList.add('legendadtLancaPagina')
-    legendadtLancaPagina.textContent = "Data Lançamento:"
-
-    const dtLancaPagina = document.createElement('data')
-    dtLancaPagina.classList.add('dtLancaPagina')
-    if (filme.data_lancamento != undefined) {
-        dtLancaPagina.textContent = tratarData(filme.data_lancamento)
-    } else {
-        dtLancaPagina.textContent = filme.data_lancamento
+  <div class="infoFilmePagina">
+    <h2 class="tituloPagina">${filme.nome}</h2>
+    <div class="legendaComSinopsePagina">
+      <h1 class="legendadtLancaPagina">Sinopse:</h1>
+      <p class="sinopsePagina">${filme.sinopse}</p>
+    </div>
+    <div class="legendaComDtRelancaPagina">
+      <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
+      <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
+    </div>
+    <div class="legendaComDtRelancaPagina">
+      <h1 class="legendadtRelancaPagina">Data Relançamento:</h1>
+      <data class="dtRelancaPagina">${tratarData(filme.data_relancamento)}</data>
+    </div>
+    <div class="legendaComDuracao">
+      <h1 class="legendaDuracao">Duração:</h1>
+      <time class="duracaoPagina">${tratarDuracao(filme.duracao)}</time>
+    </div>
+    <div class="valorECompra">
+      <div class="legendaComValorUnitario">
+        <h1 class="legendaValor">Valor Unitário:</h1>
+        <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
+      </div><button class="btn_comprar">Comprar</button>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+    `
     }
-
-
-
-    const legendaComDtRelancaPagina = document.createElement('div')
-    legendaComDtRelancaPagina.classList.add('legendaComDtRelancaPagina')
-
-    const legendadtRelancaPagina = document.createElement('h1')
-    legendadtRelancaPagina.classList.add('legendadtRelancaPagina')
-    legendadtRelancaPagina.textContent = "Data Relançamento:"
-
-    const dtRelancaPagina = document.createElement('data')
-    dtRelancaPagina.classList.add('dtRelancaPagina')
-    if (filme.data_relancamento != undefined) {
-        dtRelancaPagina.textContent = tratarData(filme.data_relancamento)
-    } else {
-        dtRelancaPagina.textContent = filme.data_relancamento
+    if (filme.data_lancamento && filme.duracao) {
+        modal.innerHTML = `
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-body">
+            <div class="botao-sair">
+              <div class="exit">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+            </div>
+            <div class="cardPaginaFilmes">
+              <div class="cardPaginaIMG"
+                style="background-image: url(&quot;https://br.web.img3.acsta.net/c_310_420/medias/nmedia/18/90/93/20/20120876.jpg&quot;); background-size: cover;">
+                <div class="classificacao"></div>
+                <div class="avaliacoes">
+                  <h1 class="numEstrelas"></h1><img class="starIMG">
+                </div>
+              </div>
+              <div class="infoFilmePagina">
+                <h2 class="tituloPagina">${filme.nome}</h2>
+                <div class="legendaComSinopsePagina">
+                  <h1 class="legendadtLancaPagina">Sinopse:</h1>
+                  <p class="sinopsePagina">${filme.sinopse}</p>
+                </div>
+                <div class="legendaComDtRelancaPagina">
+                  <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
+                  <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
+                </div>
+                <div class="legendaComDuracao">
+                  <h1 class="legendaDuracao">Duração:</h1>
+                  <time class="duracaoPagina">${tratarDuracao(filme.duracao)}</time>
+                </div>
+                <div class="valorECompra">
+                  <div class="legendaComValorUnitario">
+                    <h1 class="legendaValor">Valor Unitário:</h1>
+                    <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
+                  </div><button class="btn_comprar">Comprar</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        `
     }
-
-
-
-    const legendaComDuracao = document.createElement('div')
-    legendaComDuracao.classList.add('legendaComDuracao')
-
-    const legendaDuracao = document.createElement('h1')
-    legendaDuracao.classList.add('legendaDuracao')
-    legendaDuracao.textContent = "Duração:"
-
-    const duracaoPagina = document.createElement('time')
-    duracaoPagina.classList.add('duracaoPagina')
-    if (filme.duracao != undefined) {
-        duracaoPagina.textContent = tratarDuracao(filme.duracao)
-    } else {
-        duracaoPagina.textContent = filme.duracao
-    }
-
-    const valorECompra = document.createElement('div')
-    valorECompra.classList.add('valorECompra')
-
-    const legendaComValorUnitario = document.createElement('div')
-    legendaComValorUnitario.classList.add('legendaComValorUnitario')
-
-    const legendaValor = document.createElement('h1')
-    legendaValor.classList.add('legendaValor')
-    legendaValor.textContent = "Valor Unitário:"
-
-    const valorUnitario = document.createElement('h1')
-    valorUnitario.classList.add('valorUnitarioPagina')
-    valorUnitario.textContent = filme.valor_unitario
-
-    const btn_comprar = document.createElement('button')
-    btn_comprar.classList.add('btn_comprar')
-    btn_comprar.textContent = "Comprar"
-
-    cardPaginaFilmes.append(cardPaginaIMG, infoFilmePagina)
-    cardPaginaIMG.append(classificacao, avaliacoes)
-    avaliacoes.append(numEstrelas, starIMG)
-    infoFilmePagina.append(tituloPagina, legendaComSinopsePagina, legendaComDtLancaPagina, legendaComDtRelancaPagina, legendaComDuracao, valorECompra)
-    legendaComSinopsePagina.append(legendaSinopsePagina, sinopsePagina)
-    legendaComDtLancaPagina.append(legendadtLancaPagina, dtLancaPagina)
-    legendaComDtRelancaPagina.append(legendadtRelancaPagina, dtRelancaPagina)
-    legendaComDuracao.append(legendaDuracao, duracaoPagina)
-    valorECompra.append(legendaComValorUnitario, btn_comprar)
-    legendaComValorUnitario.append(legendaValor, valorUnitario)
-
-    return cardPaginaFilmes
+    return modal
 }
 
 export async function preencherContainer() {
     const cardsHolder = document.getElementById("cardsHolder")
-    const modalPagina = document.getElementById("modalPagina")
     const filmes = await getFilmes()
 
     filmes.forEach(filme => {
         const card = criarCard(filme)
         cardsHolder.appendChild(card)
-        const pagina = criarPaginaFilme(filme)
-        modalPagina.append(pagina)
+        console.table(filme)
     });
 }
 
@@ -243,5 +235,4 @@ window.onload = async () => {
     criarBarraPesquisa()
     criarCard(filme)
     preencherContainer()
-    console.log(filme)
 }

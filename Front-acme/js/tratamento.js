@@ -1,5 +1,5 @@
 function tratarData(data) {
-    console.log(data)
+
     const dataSemTempo = data.split('T')[0]
 
     const [ano, mes, dia] = dataSemTempo.split('-')
@@ -37,13 +37,6 @@ function tratarDuracao(tempo) {
         const duracaoFormatada = `${horas} hora e ${minutos} minutos`
         return duracaoFormatada
     }
-}
-
-export function validarData(data){
-  const reducedData = data.substr(0,10)
-  const dataSplit = reducedData.split('-')
-  const dataFinal = dataSplit[2]+"/"+dataSplit[1]+"/"+dataSplit[0]
-  return dataFinal
 }
 
 export { tratarData, tratarDuracao }
