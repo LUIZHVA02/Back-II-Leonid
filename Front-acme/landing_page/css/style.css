@@ -109,3 +109,30 @@ main {
     justify-content: space-evenly;
 }
 
+.cardPaginaFilmes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #AF0F0F;
+}
+
+.cardPaginaIMG{
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #336DAF;
+
+}
+
+.imgPagina{
+    padding: 20px;
+    height: 400px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+
+}
