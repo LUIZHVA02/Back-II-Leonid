@@ -10,8 +10,8 @@
 
 .menuBurguer{
     padding: 0;
-    height: 72px;
-    width: 72px;
+    height: 56px;
+    width: 56px;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
@@ -19,8 +19,8 @@
 
 .buttonMenu{
     padding: 0;
-    height: 72px;
-    width: 72px;
+    height: 56px;
+    width: 56px;
     align-items: center;
     justify-content: center;
     background-color: transparent;    
@@ -29,8 +29,8 @@
 
 .buttonMenu img{
     padding: 0;
-    height: 72px;
-    width: 72px;
+    height: 56px;
+    width: 56px;
     align-items: center;
     justify-content: center;
     background-color: transparent;    
@@ -40,8 +40,8 @@
 .logoPrincipal{
     display: flex;
     padding: 0;
-    height: 84px;
-    width: 210px;
+    height: 64px;
+    width: 180px;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -50,8 +50,8 @@
 .buttonHome{
     display: flex;
     padding: 0;
-    height: 84px;
-    width: 210px;
+    height: 64px;
+    width: 180px;
     align-items: center;
     justify-content: center;
     background-color: #fff;    
@@ -61,21 +61,22 @@
 
 .buttonHome img{
     padding: 0;
-    height: 70px;
-    width: 160px;  
+    height: 56px;
+    width: 144px;  
     border: none;
 }
 
 .campoPesquisa{
     padding: 0;
-    height: 84px;
-    width: 72vw;
+    height: 64px;
+    width: 70vw;
+    padding: 0px 20px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     background-color: #fff;    
     border-radius: 50px;
     border: none;
@@ -84,8 +85,8 @@
 
 .inputPesquisa{
     padding: 1%;
-    height: 64px;
-    width: 64vw;
+    height: 52px;
+    width: 60vw;
     align-items: center;
     justify-content: center;
     background-color: #fff;
@@ -100,8 +101,8 @@
 
 .iconPesquisa{
     padding: 0;
-    height: 64px;
-    width: 64px;
+    height: 52px;
+    width: 52px;
     align-items: center;
     justify-content: center;
     background-color: transparent;    
@@ -110,8 +111,8 @@
 
 .buttonPesquisa{
     padding: 0;
-    height: 64px;
-    width: 64px;
+    height: 52px;
+    width: 52px;
     align-items: center;
     justify-content: center;
     background-color: transparent;    
@@ -120,8 +121,8 @@
 
 .buttonPesquisa img{
     padding: 0;
-    height: 64px;
-    width: 64px;
+    height: 52px;
+    width: 52px;
     align-items: center;
     justify-content: center;
     background-color: transparent;    
@@ -129,17 +130,19 @@
 }
 
 .iconPerfil{
+    display: flex;
     padding: 0;
-    height: 84px;
-    width: 84px;
+    height: 64px;
+    width: 64px;
     align-items: center;
     justify-content: center;
 }
 
 .buttonPerfil{
+    display: flex;
     padding: 0;
-    height: 84px;
-    width: 84px;
+    height: 64px;
+    width: 64px;
     align-items: center;
     justify-content: center;
     border-radius: 100%;
@@ -148,9 +151,7 @@
 
 .buttonPerfil img{
     padding: 0;
-    height: 84px;
-    width: 84px;
-    align-items: center;
-    justify-content: center;
+    height:64px;
+    width:64px;
     border-radius: 100%;
 }

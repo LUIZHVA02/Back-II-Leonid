@@ -15,9 +15,9 @@ main {
 }
 
 .legendaLogin {
-    width: 650px;
+    width: 500px;
     color: #fff;
-    font-size: 72px;
+    font-size: 48px;
     font-family: 'Inika';
     font-style: normal;
     font-weight: bolder;
@@ -29,8 +29,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 700px;
-    width: 500px;
+    height: 550px;
+    width: 450px;
     background-color: #336DAF;
     border-radius: 25px;
 }
@@ -60,7 +60,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 300px;
+    height: 250px;
     width: 350px;
 }
 
@@ -151,6 +151,10 @@ main {
     border: none;
     border-radius: 15px;
 }
+.btnEntrar a{
+    text-decoration: none;
+    color: #fff;
+}
 
 .linkCadastro{
     text-decoration: none;
@@ -158,6 +162,6 @@ main {
     font-size: 24px;
     font-family: 'Inika';
     font-style: normal;
-    font-weight: bolder;
+    font-weight: lighter;
     text-align: center;
 }

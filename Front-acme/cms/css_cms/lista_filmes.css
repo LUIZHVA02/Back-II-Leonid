@@ -23,7 +23,7 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 80vh;
+    height: 70vh;
     width: 95vw;
     background-color: #336DAF;
     border-radius: 10px;
@@ -34,14 +34,14 @@ main{
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 78vh;
+    height: 68vh;
     width: 94vw;
     background-color: #AF0F0F;
     border-radius: 10px;
 }
 
 .lista{
-    height: 76vh;
+    height: 66vh;
     width: 94vw;
     overflow-y: auto;
     background-color: #AF0F0F;

@@ -1,4 +1,4 @@
-import { getFilmes, getFilme, postFilme } from "./filmes.js"
+import { getFilmes, getFilme, postFilme, getFilmeByName } from "./filmes.js"
 import { tratarData, tratarDuracao } from "./tratamento.js"
 
 export function criarBarraPesquisa() {
@@ -7,8 +7,10 @@ export function criarBarraPesquisa() {
 
   const menuBurguer = document.createElement('div')
   menuBurguer.classList.add('menuBurguer')
+  menuBurguer.setAttribute('id', 'menuBurguer')
   const buttonMenu = document.createElement('button')
   buttonMenu.classList.add('buttonMenu')
+  buttonMenu.setAttribute('id', 'buttonMenu')
   const imgMenuBurguer = document.createElement('img')
   imgMenuBurguer.src = './image/png/menu-burguer.png'
 
@@ -16,18 +18,28 @@ export function criarBarraPesquisa() {
   logo.classList.add('logoPrincipal')
   const buttonHome = document.createElement('button')
   buttonHome.classList.add('buttonHome')
+  buttonHome.setAttribute('id', 'buttonHome')
   const imgLogo = document.createElement('img')
   imgLogo.src = './image/png/acmeLogo.png'
 
   const campoPesquisa = document.createElement('div')
   campoPesquisa.classList.add('campoPesquisa')
+  campoPesquisa.setAttribute('id', 'campoPesquisa')
   const inputPesquisa = document.createElement('input')
   inputPesquisa.classList.add('inputPesquisa')
+  inputPesquisa.setAttribute('id', 'inputPesquisa')
 
   const iconPesquisa = document.createElement('div')
   iconPesquisa.classList.add('iconPesquisa')
+  iconPesquisa.setAttribute('id', 'iconPesquisa')
   const buttonPesquisa = document.createElement('button')
   buttonPesquisa.classList.add('buttonPesquisa')
+  buttonPesquisa.setAttribute('id', 'buttonPesquisa')
+  buttonPesquisa.onclick = () => {
+    fazerPesquisa(inputPesquisa.value)
+  }
+
+
   const imgLupa = document.createElement('img')
   imgLupa.src = './image/png/lupa.png'
 
@@ -45,6 +57,19 @@ export function criarBarraPesquisa() {
   buttonPesquisa.appendChild(imgLupa)
 
   return barraPesquisa
+}
+
+async function fazerPesquisa(pesquisa) {
+  const cardsHolder = document.getElementById('cardsHolder')
+  const filmeByName = await getFilmeByName(pesquisa)
+
+  console.log(pesquisa)
+
+  filmeByName.forEach(filme => {
+    const card = criarCard(filme)
+    cardsHolder.appendChild(card)
+    console.table(filme)
+  });
 }
 
 export function criarCard(filme) {
@@ -146,9 +171,10 @@ function criarModal(filme) {
               <div class="infoFilmePagina">
                 <h2 class="tituloPagina">${filme.nome}</h2>
                 <div class="legendaComSinopsePagina">
-                  <h1 class="legendadtLancaPagina">Sinopse:</h1>
+                  <h1 class="legendaSinopsePagina">Sinopse:</h1>
                   <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="8">${filme.sinopse}</textarea>
                 </div>
+                <div class="dtLanca_RelancaPagina">
                 <div class="legendaComDtRelancaPagina">
                   <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
                   <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
@@ -156,6 +182,7 @@ function criarModal(filme) {
                 <div class="legendaComDtRelancaPagina">
                   <h1 class="legendadtRelancaPagina">Data Relançamento:</h1>
                   <data class="dtRelancaPagina">${tratarData(filme.data_relancamento)}</data>
+                </div>
                 </div>
                 <div class="legendaComDuracao">
                   <h1 class="legendaDuracao">Duração:</h1>
@@ -182,8 +209,8 @@ function criarModal(filme) {
     <div class="modal-content">
       <div class="modal-body">
         <div class="botao-sair">
-          <div class="exit">
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="sair">
+            <button type="button" class="btn-close btn-sair" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
         </div>
         <div class="cardPaginaFilmes">
@@ -204,12 +231,14 @@ function criarModal(filme) {
           <div class="infoFilmePagina">
             <h2 class="tituloPagina">${filme.nome}</h2>
             <div class="legendaComSinopsePagina">
-              <h1 class="legendadtLancaPagina">Sinopse:</h1>
-              <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="8">${filme.sinopse}</textarea>
+              <h1 class="legendaSinopsePagina">Sinopse:</h1>
+              <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="6">${filme.sinopse}</textarea>
             </div>
-            <div class="legendaComDtRelancaPagina">
+            <div class="holderDtLancaPagina">
+            <div class="legendaComDtLancaPagina">
               <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
               <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
+            </div>
             </div>
             <div class="legendaComDuracao">
               <h1 class="legendaDuracao">Duração:</h1>
@@ -220,7 +249,7 @@ function criarModal(filme) {
                 <h1 class="legendaValor">Valor Unitário:</h1>
                 <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
               </div>
-              <button class="btn_comprar">Comprar</button>
+              <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
             </div>
           </div>
         </div>
@@ -240,7 +269,6 @@ export async function preencherContainer() {
   filmes.forEach(filme => {
     const card = criarCard(filme)
     cardsHolder.appendChild(card)
-    console.table(filme)
   });
 }
 

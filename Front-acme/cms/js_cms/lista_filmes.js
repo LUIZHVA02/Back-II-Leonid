@@ -30,7 +30,7 @@ export function criarBarraPesquisa(){
     const imgLupa = document.createElement('img')
     imgLupa.src = '../../image/png/lupa.png'
 
-    barraPesquisa.append(menuBurguer, logo, campoPesquisa)
+    barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
     
     menuBurguer.appendChild(buttonMenu)
     buttonMenu.appendChild(imgMenuBurguer)
@@ -75,8 +75,8 @@ function criarItensLista(filme) {
 
     const btnEditar = document.createElement('button')
     btnEditar.classList.add("btnEditar", "btn", "btn-primary")
-    btnEditar.style.height = "64px"
-    btnEditar.style.width = "64px"
+    btnEditar.style.height = "48px"
+    btnEditar.style.width = "48px"
     btnEditar.style.display = "flex"
     btnEditar.style.alignItems = "center"
     btnEditar.style.justifyContent = "center"
@@ -85,24 +85,31 @@ function criarItensLista(filme) {
     divEditarIMG.style.backgroundImage = `url("../../image/png/editar.png")`
     divEditarIMG.style.backgroundSize = `contain`
     divEditarIMG.style.backgroundRepeat = "no-repeat"
-    divEditarIMG.style.height = "48px"
-    divEditarIMG.style.width = "48px"
+    divEditarIMG.style.height = "22px"
+    divEditarIMG.style.width = "22px"
 
 
     const btnApagar = document.createElement('button')
     btnApagar.classList.add("btnApagar", "btn", "btn-danger")
-    btnApagar.style.height = "64px"
-    btnApagar.style.width = "64px"
+    btnApagar.style.height = "48px"
+    btnApagar.style.width = "48px"
     btnApagar.style.display = "flex"
     btnApagar.style.alignItems = "center"
     btnApagar.style.justifyContent = "center"
+    btnApagar.onclick = () => {
+        // deletefilme(idFilme.textContent)
+        var response = confirm(`Você tem certeza que deseja\nexcluir o filme ${filme.nome}?`)
+        if(response==true){
+            deletefilme(idFilme.textContent)
+        }
+    }
     
     const divApagarIMG = document.createElement('div')
     divApagarIMG.style.backgroundImage = 'url(../../image/png/lixeira_branca.png)'
     divApagarIMG.style.backgroundSize = `contain`
     divApagarIMG.style.backgroundRepeat = "no-repeat"
-    divApagarIMG.style.height = "48px"
-    divApagarIMG.style.width = "48px"
+    divApagarIMG.style.height = "22px"
+    divApagarIMG.style.width = "22px"
 
 
     linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme, acoes)
@@ -111,120 +118,6 @@ function criarItensLista(filme) {
     btnApagar.appendChild(divApagarIMG)
 
     return linha_lista_filmes
-}
-
-
-function criarPaginaFilme(filme) {
-    const cardPaginaFilmes = document.createElement('div')
-    cardPaginaFilmes.classList.add('cardPaginaFilmes')
-
-    const cardPaginaIMG = document.createElement('div')
-    cardPaginaIMG.classList.add('cardPaginaIMG')
-    cardPaginaIMG.style.backgroundImage = `url(${filme.foto_capa})`
-    cardPaginaIMG.style.backgroundSize = `cover`
-    
-    const classificacao = document.createElement('div')
-    classificacao.classList.add('classificacao')
-
-    const avaliacoes = document.createElement('div')
-    avaliacoes.classList.add('avaliacoes')
-
-    const numEstrelas = document.createElement('h1')
-    numEstrelas.classList.add('numEstrelas')
-
-    const starIMG = document.createElement('img')
-    starIMG.classList.add('starIMG')
-
-
-
-    const infoFilmePagina = document.createElement('div')
-    infoFilmePagina.classList.add('infoFilmePagina')
-
-    const tituloPagina = document.createElement('h2')
-    tituloPagina.classList.add('tituloPagina')
-    tituloPagina.textContent = filme.nome
-
-    const legendaComSinopsePagina = document.createElement('div')
-    legendaComSinopsePagina.classList.add('legendaComSinopsePagina')
-
-    const legendaSinopsePagina = document.createElement('h1')
-    legendaSinopsePagina.classList.add('legendadtLancaPagina')
-    legendaSinopsePagina.textContent = "Sinopse:"
-
-    const sinopsePagina = document.createElement('p')
-    sinopsePagina.classList.add('sinopsePagina')
-    sinopsePagina.textContent = filme.sinopse
-
-
-
-    const legendaComDtLancaPagina= document.createElement('div')
-    legendaComDtLancaPagina.classList.add('legendaComDtRelancaPagina')
-
-    const legendadtLancaPagina = document.createElement('h1')
-    legendadtLancaPagina.classList.add('legendadtLancaPagina')
-    legendadtLancaPagina.textContent = "Data Lançamento:"
-
-    const dtLancaPagina = document.createElement('data')
-    dtLancaPagina.classList.add('dtLancaPagina')
-    dtLancaPagina.textContent = filme.data_lancamento
-
-    
-
-    const legendaComDtRelancaPagina= document.createElement('div')
-    legendaComDtRelancaPagina.classList.add('legendaComDtRelancaPagina')
-
-    const legendadtRelancaPagina = document.createElement('h1')
-    legendadtRelancaPagina.classList.add('legendadtRelancaPagina')
-    legendadtRelancaPagina.textContent = "Data Relançamento:"
-
-    const dtRelancaPagina = document.createElement('data')
-    dtRelancaPagina.classList.add('dtRelancaPagina')
-    dtRelancaPagina.textContent = filme.data_relancamento
-
-
-
-    const legendaComDuracao = document.createElement('div')
-    legendaComDuracao.classList.add('legendaComDuracao')
-
-    const legendaDuracao = document.createElement('h1')
-    legendaDuracao.classList.add('legendaDuracao')
-    legendaDuracao.textContent = "Duração:"
-
-    const duracaoPagina = document.createElement('time')
-    duracaoPagina.classList.add('duracaoPagina')
-    duracaoPagina.textContent = filme.duracao
-
-
-    const valorECompra = document.createElement('div')
-    valorECompra.classList.add('valorECompra')
-
-    const legendaComValorUnitario = document.createElement('div')
-    legendaComValorUnitario.classList.add('legendaComValorUnitario')
-
-    const legendaValor = document.createElement('h1')
-    legendaValor.classList.add('legendaValor')
-    legendaValor.textContent = "Valor Unitário:"
-
-    const valorUnitario = document.createElement('h1')
-    valorUnitario.classList.add('valorUnitarioPagina')
-    valorUnitario.textContent = filme.valor_unitario
-
-    const btn_comprar = document.createElement('button')
-    btn_comprar.classList.add('btn_comprar')
-    btn_comprar.textContent = "Comprar"
-
-    cardPaginaFilmes.append(cardPaginaIMG, infoFilmePagina)
-    cardPaginaIMG.append(classificacao, avaliacoes)
-    avaliacoes.append(numEstrelas, starIMG)
-    infoFilmePagina.append(tituloPagina,legendaComSinopsePagina, legendaComDtLancaPagina, legendaComDtRelancaPagina,legendaComDuracao, valorECompra)
-    legendaComSinopsePagina.append(legendaSinopsePagina,sinopsePagina)
-    legendaComDtLancaPagina.append(legendadtLancaPagina,dtLancaPagina)
-    legendaComDtRelancaPagina.append(legendadtRelancaPagina,dtRelancaPagina)
-    legendaComDuracao.append(legendaDuracao,duracaoPagina)
-    valorECompra.append(legendaComValorUnitario,btn_comprar)
-    legendaComValorUnitario.append(legendaValor,valorUnitario)
-
-    return cardPaginaFilmes
 }
 
 export async function preencherLista() {

@@ -4,16 +4,6 @@
     box-sizing: border-box;
 }
 
-.linkLogin{
-    text-decoration: none;
-    color: #fff;
-    font-size: 24px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: bolder;
-    text-align: center;
-}
-
 main {
     display: flex;
     flex-direction: column;
@@ -25,9 +15,9 @@ main {
 }
 
 .legendaCadastro {
-    width: 650px;
+    width: 450px;
     color: #fff;
-    font-size: 64px;
+    font-size: 40px;
     font-family: 'Inika';
     font-style: normal;
     font-weight: bolder;
@@ -39,8 +29,8 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    height: 700px;
-    width: 500px;
+    height: 600px;
+    width: 450px;
     background-color: #336DAF;
     border-radius: 25px;
 }
@@ -48,8 +38,8 @@ main {
 .logo {
     display: flex;
     padding: 0;
-    height: 100px;
-    width: 250px;
+    height: 90px;
+    width: 240px;
     align-items: center;
     justify-content: center;
     background-color: transparent;
@@ -61,8 +51,8 @@ main {
 }
 
 .logoIMG {
-    height: 90px;
-    width: 200px;
+    height: 80px;
+    width: 190px;
 }
 
 .inputs {
@@ -70,7 +60,7 @@ main {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    height: 400px;
+    height: 300px;
     width: 350px;
 }
 
@@ -79,18 +69,18 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 80px;
     width: 340px;
 }
 
 .userIMG {
-    height: 72px;
-    width: 72px;
+    height: 64px;
+    width: 64px;
 }
 
 #inputNickNameID {
     padding: 8px;
-    height: 72px;
+    height: 64px;
     width: 260px;
     outline: none;
     border: none;
@@ -116,18 +106,18 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 80px;
     width: 340px;
 }
 
 .emailIMG {
-    height: 56px;
-    width: 72px;
+    height: 48px;
+    width: 64px;
 }
 
 #inputEmailID {
     padding: 8px;
-    height: 72px;
+    height: 64px;
     width: 260px;
     outline: none;
     border: none;
@@ -153,18 +143,18 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 80px;
     width: 340px;
 }
 
 .senhaIMG {
-    height: 72px;
-    width: 56px;
+    height: 64px;
+    width: 48px;
 }
 
 #inputSenhaID {
     padding: 8px;
-    height: 72px;
+    height: 64px;
     width: 260px;
     outline: none;
     border: none;
@@ -190,18 +180,18 @@ main {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    height: 90px;
+    height: 80px;
     width: 340px;
 }
 
 .confSenhaIMG {
-    height: 72px;
-    width: 56px;
+    height: 64px;
+    width: 48px;
 }
 
 #inputConfSenhaID {
     padding: 8px;
-    height: 72px;
+    height: 64px;
     width: 260px;
     outline: none;
     border: none;
@@ -234,4 +224,19 @@ main {
     text-align: center;
     border: none;
     border-radius: 15px;
+}
+
+.btnCadastrar a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.linkLogin{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
 }

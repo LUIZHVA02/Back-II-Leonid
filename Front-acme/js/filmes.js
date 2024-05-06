@@ -12,6 +12,13 @@ export async function getFilme(id) {
     return data.filme
 }
 
+export async function getFilmeByName(nome) {
+    const url = `http://localhost:8080/v2/acmefilmes/filtro/filme/?nome=${nome}`
+    const response = await fetch(url)
+    const data = await response.json()
+    return data.filme
+}
+
 export async function getFotoFilmes() {
     const url = 'http://localhost:8080/v2/acmefilmes/filme/foto_capa'
     const response = await fetch(url)
@@ -36,7 +43,7 @@ export async function postFilme (filme) {
 }
 
 export async function putFilme (filme) {
-    const url = `http://localhost:8080/v2/acmefilmes/filme/${filme.id}`
+    const url = `http://localhost:8080/v2/acmefilmes/updateFilme/${filme.id}`
     
     const options = {
         method: 'PUT',
@@ -51,16 +58,17 @@ export async function putFilme (filme) {
 }
 
 export async function deletefilme (id) {
-    const url = `http://localhost:8080/v2/acmefilmes/filme/${id}`
+    const url = `http://localhost:8080/v2/acmefilmes/deleteFilme/${id}`
     
     const options = {
         method: 'DELETE',
         headers: {
             'Content-type' : 'Application/json',
-        },
-        body: JSON.stringify(filme)
+        }
     }
     const response = await fetch(url,options)
+
+    window.location.reload()
 
     return response.ok
 }
