@@ -90,18 +90,67 @@ main{
 
 }
 
-.classificacao{
+.legendaComInputLinkCapaFilmeEdicao{
+
+}
+
+.legendaCapaFilmeEdicao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.imgCapaFilmeEdicao{
     display: flex;
     height: 64px;
-    width: 64px;
+    width: 268px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.classificacaoEdicao{
+    display: flex;
+    flex-direction: column;
+    height: 128px;
+    width: 268px;
     align-items: center;
     justify-content: center;
 }
 
-.classificacao img{
+.legendaClassificacaoFilmeEdicao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.classificacaoImgEdicao{
     display: flex;
     height: 64px;
-    width: 64px;
+    width: 268px;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
 .infoFilmePaginaEdicao{
@@ -114,12 +163,16 @@ main{
 }
 
 .tituloPaginaEdicao{
-    font-size: 36px;
+    width: 400px;
+    font-size: 24px;
     font-family: 'Inika';
     font-style: normal;
     font-weight: bolder;
     text-align: center;
     color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
 .legendaComSinopsePaginaEdicao{
@@ -155,8 +208,9 @@ main{
     text-align: justify;
     color: white;
     background-color: transparent;
-    border: 2px solid white;
+        border: 2px solid white;
     border-radius: 5px;
+
 }
 
 .holderDtLancaPaginaEdicao{
@@ -229,6 +283,9 @@ main{
     font-weight: lighter;
     text-align: center;
     color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
 .legendaComDtRelancaPaginaEdicao{
@@ -256,9 +313,12 @@ main{
     font-weight: lighter;
     text-align: center;
     color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
-.legendaComDuracao{
+.legendaComDuracaoEdicao{
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -267,7 +327,7 @@ main{
     justify-content: space-between;
 }
 
-.legendaDuracao{
+.legendaDuracaoEdicao{
     font-size: 28px;
     font-family: 'Inika';
     font-style: normal;
@@ -283,9 +343,12 @@ main{
     font-weight: lighter;
     text-align: center;
     color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
-.valorECompra{
+.valorECompraEdicao{
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -293,14 +356,14 @@ main{
     justify-content: space-evenly;
 }
 
-.legendaComValorUnitario{
+.legendaComValorUnitarioEdicao{
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 }
 
-.legendaValor{
+.legendaValorEdicao{
     font-size: 28px;
     font-family: 'Inika';
     font-style: normal;
@@ -316,9 +379,12 @@ main{
     font-weight: lighter;
     text-align: center;
     color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
 }
 
-.btn_comprar{
+.btn_Salvar{
     background-color: #336DAF;
     color: #ffff;
 }
@@ -351,7 +417,7 @@ main{
 
 }
 
-.classificacao{
+.classificacaoUserView{
     display: flex;
     height: 64px;
     width: 64px;
@@ -359,7 +425,7 @@ main{
     justify-content: center;
 }
 
-.classificacao img{
+.classificacaoUserView img{
     display: flex;
     height: 64px;
     width: 64px;
@@ -416,6 +482,8 @@ main{
     text-align: justify;
     color: white;
     background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
     border: 2px solid white;
     border-radius: 5px;
 }
@@ -519,7 +587,7 @@ main{
     color: white;
 }
 
-.legendaComDuracao{
+.legendaComDuracaoUserView{
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -528,7 +596,7 @@ main{
     justify-content: space-between;
 }
 
-.legendaDuracao{
+.legendaDuracaoUserView{
     font-size: 28px;
     font-family: 'Inika';
     font-style: normal;
@@ -546,7 +614,7 @@ main{
     color: white;
 }
 
-.valorECompra{
+.valorECompraUserView{
     width: 600px;
     display: flex;
     flex-direction: row;
@@ -561,7 +629,7 @@ main{
     justify-content: center;
 }
 
-.legendaValor{
+.legendaValorUserView{
     font-size: 28px;
     font-family: 'Inika';
     font-style: normal;
@@ -579,7 +647,7 @@ main{
     color: white;
 }
 
-.btn_Salvar{
+.btn_comprarUserView{
     background-color: #336DAF;
     color: #ffff;
 }

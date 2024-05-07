@@ -76,7 +76,7 @@ function criarItensLista(filme) {
     ) {
         dataRELancamentoFilme.textContent = tratarData(filme.data_relancamento)
     }
-    
+
 
     const acoes = document.createElement('li')
     acoes.classList.add("list-group-item", "acoes", "col-2")
@@ -153,7 +153,7 @@ function criarItensLista(filme) {
     divApagarIMG.style.width = "22px"
 
 
-    linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme,dataRELancamentoFilme, acoes)
+    linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme, dataRELancamentoFilme, acoes)
     acoes.append(btnUserView, btnEditar, btnApagar)
     btnUserView.appendChild(divUserViewIMG)
     btnEditar.appendChild(divEditarIMG)
@@ -198,15 +198,11 @@ function criarModalUserView(filme) {
                   </div>
                 </div>
                 <div class="cardPaginaUserViewFilmes">
-                <div class="campoImagemClassificacao">
+                <div class="campoImagemClassificacaoUserView">
                 <div class="cardPaginaUserViewIMG">
                   <div class="imgPaginaUserView" style="background-image: url('${filme.foto_capa}');">
-                    <div class="classificacao">
+                    <div class="classificacaoUserView">
                   <img src="${filme.imagem}" alt="">
-                </div>
-                <div class="avaliacoes">
-                  <h1 class="numEstrelas"></h1>
-                  <img class="starIMG">
                 </div>
                   </div>
                 </div>
@@ -228,16 +224,16 @@ function criarModalUserView(filme) {
                       <data class="dtRelancaPaginaUserView">${tratarData(filme.data_relancamento)}</data>
                     </div>
                     </div>
-                    <div class="legendaComDuracao">
-                      <h1 class="legendaDuracao">Duração:</h1>
+                    <div class="legendaComDuracaoUserView">
+                      <h1 class="legendaDuracaoUserView">Duração:</h1>
                       <time class="duracaoPaginaUserView">${tratarDuracao(filme.duracao)}</time>
                     </div>
-                    <div class="valorECompra">
+                    <div class="valorECompraUserView">
                       <div class="legendaComValorUnitario">
-                        <h1 class="legendaValor">Valor Unitário:</h1>
+                        <h1 class="legendaValorUserView">Valor Unitário:</h1>
                         <h1 class="valorUnitarioPaginaUserView">${filme.valor_unitario}</h1>
                       </div>
-                      <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
+                      <button class="btn btn-primary btn-lg btn_comprarUserView">Comprar</button>
                       </div>
                   </div>
                 </div>
@@ -246,8 +242,8 @@ function criarModalUserView(filme) {
           </div>
           </div>
         `
-      }
-      if (
+    }
+    if (
         filme.data_relancamento == undefined ||
         filme.data_relancamento == '' ||
         filme.data_relancamento == null
@@ -262,16 +258,12 @@ function criarModalUserView(filme) {
               </div>
             </div>
             <div class="cardPaginaUserViewFilmes">
-              <div class="campoImagemClassificacao">
+              <div class="campoImagemClassificacaoUserView">
                 <div class="cardPaginaUserViewIMG">
                   <div class="imgPaginaUserView" style="background-image: url('${filme.foto_capa}');">
-                    <div class="classificacao">
-                  <img src="${filme.imagem}" alt="">
-                </div>
-                <div class="avaliacoes">
-                  <h1 class="numEstrelas"></h1>
-                  <img class="starIMG">
-                </div>
+                    <div class="classificacaoUserView">
+                        <img src="${filme.imagem}" alt="">
+                    </div>
                   </div>
                 </div>
                 
@@ -288,16 +280,16 @@ function criarModalUserView(filme) {
                   <data class="dtLancaPaginaUserView2">${tratarData(filme.data_lancamento)}</data>
                 </div>
                 </div>
-                <div class="legendaComDuracao">
-                  <h1 class="legendaDuracao">Duração:</h1>
+                <div class="legendaComDuracaoUserView">
+                  <h1 class="legendaDuracaoUserView">Duração:</h1>
                   <time class="duracaoPaginaUserView">${tratarDuracao(filme.duracao)}</time>
                 </div>
-                <div class="valorECompra">
-                  <div class="legendaComValorUnitario">
-                    <h1 class="legendaValor">Valor Unitário:</h1>
+                <div class="valorECompraUserView">
+                  <div class="legendaComValorUnitarioUserView">
+                    <h1 class="legendaValorUserView">Valor Unitário:</h1>
                     <h1 class="valorUnitarioPaginaUserView">${filme.valor_unitario}</h1>
                   </div>
-                  <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
+                  <button class="btn btn-primary btn-lg btn_comprarUserView">Comprar</button>
                   </div>
               </div>
             </div>
@@ -306,11 +298,11 @@ function criarModalUserView(filme) {
       </div>
       </div>
             `
-      }
+    }
     return modal
 }
 
-function criarModalEdicao(filme) {
+function criarModalEdicao() {
 
     const modal = document.createElement('div')
     modal.classList.add('modal', 'fade')
@@ -319,7 +311,7 @@ function criarModalEdicao(filme) {
     modal.setAttribute('aria-hidden', 'true')
 
     // Conteúdo do modal
-        modal.innerHTML = `
+    modal.innerHTML = `
         <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-body">
@@ -330,26 +322,29 @@ function criarModalEdicao(filme) {
                     </div>
                 </div>
                 <div class="cardPaginaEdicaoFilmes">
-                    <div class="campoImagemClassificacao">
+                    <div class="campoImagemClassificacaoEdicao">
                         <div class="cardPaginaEdicaoIMG">
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
+                                    <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
                                     <input type="url" class="classificacaoImgEdicao" id="classificacaoImgEdicao"
-                                        value="Digite a classificação do filme">
+                                        value="">
                                 </div>
     
-                                <input type="url" class="imgcapaFilmeEdicao" id="imgcapaFilmeEdicao" 
-                                    value="Digite o link da capa do filme">
+                                <div class="legendaComInputLinkCapaFilmeEdicao">
+                                    <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
+                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="">
+                                </div>
                             </div>
                         </div>
     
                     </div>
                     <div class="infoFilmePaginaEdicao">
-                        <input type="text" class="tituloPaginaEdicao" value="Digite o nome do filme">
+                        <input type="text" class="tituloPaginaEdicao" id="tituloPaginaEdicao" value="Digite o novo nome do filme">
                         <div class="legendaComSinopsePaginaEdicao">
                             <h1 class="legendaSinopsePaginaEdicao">Sinopse:</h1>
                             <textarea class="sinopsePaginaEdicao" id="sinopsePaginaEdicao" cols="80"
-                                rows="6">Insira a sinopse aqui</textarea>
+                                rows="6">Insira a nova sinopse aqui</textarea>
                         </div>
                         <div class="dtLanca_RelancaPaginaEdicao">
                             <div class="legendaComDtLancaPaginaEdicao">
@@ -365,14 +360,14 @@ function criarModalEdicao(filme) {
     
                             </div>
                         </div>
-                        <div class="legendaComDuracao">
-                            <h1 class="legendaDuracao">Duração:</h1>
+                        <div class="legendaComDuracaoEdicao">
+                            <h1 class="legendaDuracaoEdicao">Duração:</h1>
                             <input type="time" id="duracaoPaginaEdicao" class="duracaoPaginaEdicao"
                                 value="">
                         </div>
-                        <div class="valorECompra">
-                            <div class="legendaComValorUnitario">
-                                <h1 class="legendaValor">Valor Unitário:</h1>
+                        <div class="valorECompraEdicao">
+                            <div class="legendaComValorUnitarioEdicao">
+                                <h1 class="legendaValorEdicao">Valor Unitário:</h1>
                                 <input type="number" id="valorUnitarioPaginaEdicao" class="valorUnitarioPaginaEdicao">
                             </div>
                             <button class="btn btn-primary btn-lg btn_Salvar">Salvar Alterações</button>
@@ -383,9 +378,20 @@ function criarModalEdicao(filme) {
         </div>
     </div>
     </div>
-        `
+     `
+
     return modal
 }
+
+const valorFotoCapa = document.getElementById('imgCapaFilmeEdicao')
+    valorFotoCapa.addEventListener('change', validarFoto_capa())
+
+    function validarFoto_capa(){
+        let usar_foto_capa = true
+        console.log("usar_foto_capa")
+    
+        return usar_foto_capa
+    }
 
 window.onload = async () => {
 
