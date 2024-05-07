@@ -47,3 +47,539 @@ main{
     background-color: #AF0F0F;
     border-radius: 10px;
 }
+
+.modal-body{
+    background-color: #AF0F0F;
+}
+
+.sair{
+    display: flex;
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.cardPaginaEdicaoFilmes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #AF0F0F;
+}
+
+.cardPaginaEdicaoIMG{
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #336DAF;
+
+}
+
+.imgPaginaEdicao{
+    padding: 16px;
+    height: 400px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.classificacao{
+    display: flex;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+}
+
+.classificacao img{
+    display: flex;
+    height: 64px;
+    width: 64px;
+}
+
+.infoFilmePaginaEdicao{
+    width: 600px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloPaginaEdicao{
+    font-size: 36px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.legendaComSinopsePaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.legendaSinopsePaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 32px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.sinopsePaginaEdicao{
+    width: 600px;
+    padding: 8px;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: justify;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.holderDtLancaPaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dtLanca_RelancaPaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComDtLancaPaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtLancaPaginaEdicao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPaginaEdicao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtLancaPaginaEdicao2{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendadtLancaPaginaEdicao2{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPaginaEdicao2{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtRelancaPaginaEdicao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtRelancaPaginaEdicao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtRelancaPaginaEdicao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDuracao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 120px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legendaDuracao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.duracaoPaginaEdicao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.valorECompra{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComValorUnitario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendaValor{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.valorUnitarioPaginaEdicao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.btn_comprar{
+    background-color: #336DAF;
+    color: #ffff;
+}
+
+.cardPaginaUserViewFilmes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #AF0F0F;
+}
+
+.cardPaginaUserViewIMG{
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #336DAF;
+
+}
+
+.imgPaginaUserView{
+    padding: 16px;
+    height: 400px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.classificacao{
+    display: flex;
+    height: 64px;
+    width: 64px;
+    align-items: center;
+    justify-content: center;
+}
+
+.classificacao img{
+    display: flex;
+    height: 64px;
+    width: 64px;
+}
+
+.infoFilmePaginaUserView{
+    width: 600px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloPaginaUserView{
+    font-size: 36px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.legendaComSinopsePaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.legendaSinopsePaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 32px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.sinopsePaginaUserView{
+    width: 600px;
+    padding: 8px;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: justify;
+    color: white;
+    background-color: transparent;
+    border: 2px solid white;
+    border-radius: 5px;
+}
+
+.holderDtLancaPaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dtLanca_RelancaPaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComDtLancaPaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtLancaPaginaUserView{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPaginaUserView{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtLancaPaginaUserView2{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendadtLancaPaginaUserView2{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPaginaUserView2{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtRelancaPaginaUserView{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtRelancaPaginaUserView{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtRelancaPaginaUserView{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDuracao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 120px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legendaDuracao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.duracaoPaginaUserView{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.valorECompra{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComValorUnitario{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendaValor{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.valorUnitarioPaginaUserView{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.btn_Salvar{
+    background-color: #336DAF;
+    color: #ffff;
+}

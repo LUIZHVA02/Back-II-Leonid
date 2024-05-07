@@ -145,7 +145,11 @@ function criarModal(filme) {
   modal.setAttribute('aria-hidden', 'true')
 
   // Conteúdo do modal
-  if (filme.data_lancamento && filme.data_relancamento && filme.duracao) {
+  if (
+    filme.data_relancamento != undefined &&
+    filme.data_relancamento != '' &&
+    filme.data_relancamento != null
+) {
     modal.innerHTML = `
         <div class="modal-dialog modal-xl modal-dialog-centered">
         <div class="modal-content">
@@ -156,8 +160,8 @@ function criarModal(filme) {
               </div>
             </div>
             <div class="cardPaginaFilmes">
-              <div class="campoImagemClassificacao">
-              <div class="cardPaginaIMG">
+            <div class="campoImagemClassificacao">
+            <div class="cardPaginaIMG">
               <div class="imgPagina" style="background-image: url('${filme.foto_capa}');">
                 <div class="classificacao">
               <img src="${filme.imagem}" alt="">
@@ -168,11 +172,13 @@ function criarModal(filme) {
             </div>
               </div>
             </div>
+            </div>
+
               <div class="infoFilmePagina">
                 <h2 class="tituloPagina">${filme.nome}</h2>
                 <div class="legendaComSinopsePagina">
                   <h1 class="legendaSinopsePagina">Sinopse:</h1>
-                  <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="8">${filme.sinopse}</textarea>
+                  <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="6">${filme.sinopse}</textarea>
                 </div>
                 <div class="dtLanca_RelancaPagina">
                 <div class="legendaComDtRelancaPagina">
@@ -193,7 +199,7 @@ function criarModal(filme) {
                     <h1 class="legendaValor">Valor Unitário:</h1>
                     <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
                   </div>
-                  <button class="btn_comprar">Comprar</button>
+                  <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
                 </div>
               </div>
             </div>
@@ -203,7 +209,11 @@ function criarModal(filme) {
       </div>
     `
   }
-  if (filme.data_lancamento && filme.duracao) {
+  if (
+    filme.data_relancamento == undefined ||
+    filme.data_relancamento == '' ||
+    filme.data_relancamento == null
+) {
     modal.innerHTML = `
     <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
@@ -235,9 +245,9 @@ function criarModal(filme) {
               <textarea class="sinopsePagina" id="sinopsePagina" cols="80" rows="6">${filme.sinopse}</textarea>
             </div>
             <div class="holderDtLancaPagina">
-            <div class="legendaComDtLancaPagina">
-              <h1 class="legendadtLancaPagina">Data Lançamento:</h1>
-              <data class="dtLancaPagina">${tratarData(filme.data_lancamento)}</data>
+            <div class="legendaComDtLancaPagina2">
+              <h1 class="legendadtLancaPagina2">Data Lançamento:</h1>
+              <data class="dtLancaPagina2">${tratarData(filme.data_lancamento)}</data>
             </div>
             </div>
             <div class="legendaComDuracao">

@@ -174,7 +174,7 @@ main {
 
 .infoFilmePagina{
     width: 600px;
-    height: 500px;
+    height: 550px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -236,13 +236,22 @@ main {
     justify-content: center;
 }
 
-.legendaComDtLancaPagina{
+.dtLanca_RelancaPagina{
     width: 600px;
     display: flex;
     flex-direction: row;
-    padding: 0px 0px;
+    padding: 0px 24px;
     align-items: center;
     justify-content: space-evenly;
+}
+
+.legendaComDtLancaPagina{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
 }
 
 .legendadtLancaPagina{
@@ -255,6 +264,60 @@ main {
 }
 
 .dtLancaPagina{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtLancaPagina2{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendadtLancaPagina2{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPagina2{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+}
+
+.legendaComDtRelancaPagina{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtRelancaPagina{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtRelancaPagina{
     font-size: 24px;
     font-family: 'Inika';
     font-style: normal;
