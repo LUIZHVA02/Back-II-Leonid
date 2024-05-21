@@ -1,0 +1,242 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    background-color: #AF0F0F;
+}
+
+.legendaCadastro {
+    width: 450px;
+    color: #fff;
+    font-size: 40px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.inputsCadastro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 600px;
+    width: 450px;
+    background-color: #336DAF;
+    border-radius: 25px;
+}
+
+.logo {
+    display: flex;
+    padding: 0;
+    height: 90px;
+    width: 240px;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50px;
+    border: none;
+}
+
+.logoIMG {
+    height: 80px;
+    width: 190px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+    width: 350px;
+}
+
+.inputsNickname {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 340px;
+}
+
+.userIMG {
+    height: 64px;
+    width: 64px;
+}
+
+#inputNickNameID {
+    padding: 8px;
+    height: 64px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid #ffffff;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputNickNameID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.inputEmail {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 340px;
+}
+
+.emailIMG {
+    height: 48px;
+    width: 64px;
+}
+
+#inputEmailID {
+    padding: 8px;
+    height: 64px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputEmailID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.inputSenha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 340px;
+}
+
+.senhaIMG {
+    height: 64px;
+    width: 48px;
+}
+
+#inputSenhaID {
+    padding: 8px;
+    height: 64px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputSenhaID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.inputConfirmaSenha {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+    width: 340px;
+}
+
+.confSenhaIMG {
+    height: 64px;
+    width: 48px;
+}
+
+#inputConfSenhaID {
+    padding: 8px;
+    height: 64px;
+    width: 260px;
+    outline: none;
+    border: none;
+    border-bottom: 4px solid white;
+    background-color: #336DAF;
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+#inputConfSenhaID::placeholder {
+    color: #fff;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+}
+
+.btnCadastrar {
+    height: 80px;
+    width: 300px;
+    background-color: #AF0F0F;
+    color: #fff;
+    font-size: 32px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    border: none;
+    border-radius: 15px;
+}
+
+.btnCadastrar a{
+    text-decoration: none;
+    color: #fff;
+}
+
+.linkLogin{
+    text-decoration: none;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+}

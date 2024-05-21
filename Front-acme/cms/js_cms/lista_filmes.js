@@ -152,7 +152,6 @@ function criarItensLista(filme) {
     divApagarIMG.style.height = "22px"
     divApagarIMG.style.width = "22px"
 
-
     linha_lista_filmes.append(idFilme, nomeFilme, duracaoFilme, dataLancamentoFilme, dataRELancamentoFilme, acoes)
     acoes.append(btnUserView, btnEditar, btnApagar)
     btnUserView.appendChild(divUserViewIMG)
@@ -328,12 +327,19 @@ function criarModalEdicao() {
                                 <div class="classificacaoEdicao">
                                     <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
                                     <input type="url" class="classificacaoImgEdicao" id="classificacaoImgEdicao"
-                                        value="">
+                                        value="" placeholder="'A10' ou 'Não recomendado para menores de 10 anos'">
                                 </div>
     
                                 <div class="legendaComInputLinkCapaFilmeEdicao">
                                     <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
-                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="">
+                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="" onchange="validarFoto_capa()">
+
+                                    <script>
+                                      function validarFoto_capa (){
+                                        let usar_foto_capa = document.getElementById('imgCapaFilmeEdicao')
+                                        console.log(usar_foto_capa.value)
+                                      }
+                                    </script>
                                 </div>
                             </div>
                         </div>
@@ -382,16 +388,6 @@ function criarModalEdicao() {
 
     return modal
 }
-
-const valorFotoCapa = document.getElementById('imgCapaFilmeEdicao')
-    valorFotoCapa.addEventListener('change', validarFoto_capa())
-
-    function validarFoto_capa(){
-        let usar_foto_capa = true
-        console.log("usar_foto_capa")
-    
-        return usar_foto_capa
-    }
 
 window.onload = async () => {
 
