@@ -138,7 +138,7 @@ main{
     color: white;
 }
 
-.classificacaoImgEdicao{
+.classificacoes{
     display: flex;
     height: 64px;
     width: 268px;
@@ -151,6 +151,18 @@ main{
     background-color: transparent;
         border: 2px solid white;
     border-radius: 5px;
+}
+
+.optionClassificacao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    background-color: #336DAF;
 }
 
 .infoFilmePaginaEdicao{

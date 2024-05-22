@@ -1,3 +1,4 @@
+import { getClassificacoes } from "../../js/classificacoes.js"
 import { getFilmes, getFilme, postFilme, deletefilme } from "../../js/filmes.js"
 import { tratarData, tratarDuracao } from "./tratamento_cms.js"
 
@@ -121,6 +122,7 @@ function criarItensLista(filme) {
         document.body.appendChild(modal)
         var myModal = new bootstrap.Modal(modal)
         myModal.show()
+        preencherSelectClassificacoes()
     })
 
     const divEditarIMG = document.createElement('div')
@@ -171,6 +173,25 @@ export async function preencherLista() {
         lista_filmes.appendChild(linha_lista)
 
     });
+}
+
+function criarOpcoesClassificacoes(classificacoes) {
+  const optionClassificacao = document.createElement('option')
+  optionClassificacao.classList.add("optionClassificacao", `option${classificacoes.sigla}`)
+  optionClassificacao.textContent = `${classificacoes.sigla}, ${classificacoes.classificacao}`
+
+  return optionClassificacao
+}
+
+export async function preencherSelectClassificacoes() {
+  const selectClassificacoes = document.getElementById('classificacoes')
+  const classificacoes = await getClassificacoes()
+  
+  classificacoes.forEach(classificacao =>{
+    const optionsClassificacao = criarOpcoesClassificacoes(classificacao)    
+    selectClassificacoes.appendChild(optionsClassificacao)
+
+  })
 }
 
 function criarModalUserView(filme) {
@@ -326,20 +347,12 @@ function criarModalEdicao() {
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
                                     <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
-                                    <input type="url" class="classificacaoImgEdicao" id="classificacaoImgEdicao"
-                                        value="" placeholder="'A10' ou 'Não recomendado para menores de 10 anos'">
+                                    <select name="classificacoes" id="classificacoes" class="classificacoes"></select>
                                 </div>
-    
+
                                 <div class="legendaComInputLinkCapaFilmeEdicao">
                                     <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
-                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="" onchange="validarFoto_capa()">
-
-                                    <script>
-                                      function validarFoto_capa (){
-                                        let usar_foto_capa = document.getElementById('imgCapaFilmeEdicao')
-                                        console.log(usar_foto_capa.value)
-                                      }
-                                    </script>
+                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="">
                                 </div>
                             </div>
                         </div>
@@ -392,7 +405,10 @@ function criarModalEdicao() {
 window.onload = async () => {
 
     const filme = await getFilmes()
+    const classificacoes = await getClassificacoes()
+
     criarBarraPesquisa()
     preencherLista()
-    console.log(filme)
+    console.table(filme);
+    console.table(classificacoes);
 }
