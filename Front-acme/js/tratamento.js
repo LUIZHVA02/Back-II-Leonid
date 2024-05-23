@@ -11,6 +11,15 @@ function tratarData(data) {
     return dataFormatada
 }
 
+function tratarDataSimples(data) {
+
+    const dataSemTempo = data.split('T')[0]
+
+    const dataFormatada = `${dataSemTempo}`
+
+    return dataFormatada
+}
+
 function obterNomeMes(numeroMes) {
     const meses = [
         "janeiro", "fevereiro", "março", "abril", "maio", "junho",
@@ -39,4 +48,28 @@ function tratarDuracao(tempo) {
     }
 }
 
-export { tratarData, tratarDuracao }
+function tratarDuracaoSimples(tempo) {
+    // Remover tudo 'T' e depois do último caractere 'Z'
+    const tempoSemData = tempo.split('T')[1].split('.')[0]
+
+    const duracaoFormatada = `${tempoSemData}`
+    return duracaoFormatada
+}
+
+function tratarValorUnitario(valorUnitario) {
+    const strValorUnitario = valorUnitario.toString()
+
+    const digito0 = strValorUnitario.split("")[0];
+    const digito1 = strValorUnitario.split("")[1];
+    const digito2 = strValorUnitario.split("")[2];
+    const digito3 = strValorUnitario.split("")[3];
+    const digito4 = strValorUnitario.split("")[4];
+
+    const valorUnitarioCurto = `${digito0}${digito1}${digito2}${digito3}${digito4}`
+
+    const valorUnitarioFormatado = `${valorUnitarioCurto}`
+
+    return valorUnitarioFormatado
+}
+
+export { tratarData, tratarDuracao, tratarDataSimples, tratarDuracaoSimples, tratarValorUnitario }

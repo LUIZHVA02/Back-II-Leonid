@@ -268,33 +268,6 @@ main{
     font-weight: lighter;
     text-align: center;
     color: white;
-}
-
-.legendaComDtLancaPaginaEdicao2{
-    width: 600px;
-    display: flex;
-    flex-direction: row;
-    padding: 0px 0px;
-    align-items: center;
-    justify-content: space-evenly;
-}
-
-.legendadtLancaPaginaEdicao2{
-    font-size: 28px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: bolder;
-    text-align: center;
-    color: white;
-}
-
-.dtLancaPaginaEdicao2{
-    font-size: 24px;
-    font-family: 'Inika';
-    font-style: normal;
-    font-weight: lighter;
-    text-align: center;
-    color: white;
     background-color: transparent;
         border: 2px solid white;
     border-radius: 5px;
