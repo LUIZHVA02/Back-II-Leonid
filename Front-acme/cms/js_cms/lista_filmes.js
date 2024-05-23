@@ -1,4 +1,4 @@
-import { getClassificacoes } from "../../js/classificacoes.js"
+import { getClassificacao, getClassificacoes } from "../../js/classificacoes.js"
 import { getFilmes, getFilme, postFilme, deletefilme, putFilme } from "../../js/filmes.js"
 import { tratarDataSimples, tratarDuracaoSimples, tratarValorUnitario } from "../../js/tratamento.js"
 import { tratarData, tratarDuracao } from "./tratamento_cms.js"
@@ -156,7 +156,7 @@ function criarItensLista(filme) {
 
       }
 
-      console.log(novoFilme);
+      console.log(preencherSelectClassificacoes(id));
     })
 
     const btnSair = document.getElementById('btn-sair')
@@ -224,14 +224,31 @@ function criarOpcoesClassificacoes(classificacoes) {
   return optionClassificacao
 }
 
-export async function preencherSelectClassificacoes() {
+export async function preencherSelectClassificacoes(id) {
   const selectClassificacoes = document.getElementById('classificacoes')
   const classificacoes = await getClassificacoes()
 
   classificacoes.forEach(classificacao => {
     const optionsClassificacao = criarOpcoesClassificacoes(classificacao)
     selectClassificacoes.appendChild(optionsClassificacao)
+  })
 
+  selectClassificacoes.addEventListener('change', ()=>{
+    const option = selectClassificacoes.options[selectClassificacoes.selectedIndex].text
+    
+    const id_classificacao = option.split(" -")[0];
+    const sigla = option.split("-")[1].split(",")[0]
+    const classificacao = option.split(",")[1]
+
+    const infoClassificacao = {
+      id_classificacao,
+      sigla,
+      classificacao
+    }
+
+    id = id_classificacao
+
+    return id
   })
 }
 
