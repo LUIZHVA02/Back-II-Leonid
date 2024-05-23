@@ -103,7 +103,7 @@ function criarItensLista(filme) {
 
     const btnSair = document.getElementById('btn-close')
     btnSair.addEventListener('click', () => {
-      const modalUserView = document.getElementById("modalUserView")
+      const modalUserView = document.getElementById("staticBackdrop")
       modalUserView.parentNode.removeChild(modalUserView)
     })
   })
@@ -132,7 +132,11 @@ function criarItensLista(filme) {
     preencherSelectClassificacoes()
 
     const btnSalvar = document.getElementById('btn_Salvar')
-    btnSalvar.addEventListener('click', ()=>{
+    btnSalvar.addEventListener('click', async () => {
+
+
+      const selectClassificacoes = document.getElementById('classificacoes')
+      const option = selectClassificacoes.options[selectClassificacoes.selectedIndex].text
 
       const id = filme.id
       const nome = document.getElementById('tituloPaginaEdicao').value
@@ -142,7 +146,7 @@ function criarItensLista(filme) {
       const data_relancamento = document.getElementById('dtRelancaPaginaEdicao').value
       const foto_capa = document.getElementById('imgCapaFilmeEdicao').value
       const valor_unitario = document.getElementById('valorUnitarioPaginaEdicao').value
-      const id_classificacao = document.getElementById('valorUnitarioPaginaEdicao').value
+      const id_classificacao = option.split(" -")[0];
 
       const novoFilme = {
         id,
@@ -153,15 +157,17 @@ function criarItensLista(filme) {
         data_relancamento,
         foto_capa,
         valor_unitario,
-
+        id_classificacao
       }
 
-      console.log(preencherSelectClassificacoes(id));
+      const filmeAtualizado = await putFilme(novoFilme)
+
+      console.log(filmeAtualizado, novoFilme);
     })
 
     const btnSair = document.getElementById('btn-sair')
     btnSair.addEventListener('click', () => {
-      const modalEdicao = document.getElementById("modalEdicao");
+      const modalEdicao = document.getElementById("staticBackdrop");
       modalEdicao.parentNode.removeChild(modalEdicao);
     })
   })
@@ -224,31 +230,14 @@ function criarOpcoesClassificacoes(classificacoes) {
   return optionClassificacao
 }
 
-export async function preencherSelectClassificacoes(id) {
+const preencherSelectClassificacoes = async function () {
   const selectClassificacoes = document.getElementById('classificacoes')
   const classificacoes = await getClassificacoes()
 
   classificacoes.forEach(classificacao => {
     const optionsClassificacao = criarOpcoesClassificacoes(classificacao)
     selectClassificacoes.appendChild(optionsClassificacao)
-  })
 
-  selectClassificacoes.addEventListener('change', ()=>{
-    const option = selectClassificacoes.options[selectClassificacoes.selectedIndex].text
-    
-    const id_classificacao = option.split(" -")[0];
-    const sigla = option.split("-")[1].split(",")[0]
-    const classificacao = option.split(",")[1]
-
-    const infoClassificacao = {
-      id_classificacao,
-      sigla,
-      classificacao
-    }
-
-    id = id_classificacao
-
-    return id
   })
 }
 
@@ -257,9 +246,11 @@ function criarModalUserView(filme) {
   const modal = document.createElement('div')
   modal.classList.add('modal', 'fade')
   modal.setAttribute('tabindex', '-1')
-  modal.setAttribute('aria-labelledby', 'exampleModalLabel')
+  modal.setAttribute('aria-labelledby', 'staticBackdropLabel')
   modal.setAttribute('aria-hidden', 'true')
-  modal.setAttribute('id', 'modalUserView')
+  modal.setAttribute('data-bs-backdrop','static')
+  modal.setAttribute('data-bs-keyboard','false')
+  modal.setAttribute('id', 'staticBackdrop')
 
 
   // Conteúdo do modal
@@ -387,9 +378,12 @@ function criarModalEdicao(filme) {
   const modal = document.createElement('div')
   modal.classList.add('modal', 'fade')
   modal.setAttribute('tabindex', '-1')
-  modal.setAttribute('aria-labelledby', 'exampleModalLabel')
+  modal.setAttribute('aria-labelledby', 'staticBackdropLabel')
   modal.setAttribute('aria-hidden', 'true')
-  modal.setAttribute('id', 'modalEdicao')
+  modal.setAttribute('data-bs-backdrop','static')
+  modal.setAttribute('data-bs-keyboard','false')
+  modal.setAttribute('id', 'staticBackdrop')
+ 
 
   // Conteúdo do modal
   if (
@@ -413,7 +407,9 @@ function criarModalEdicao(filme) {
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
                                     <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
-                                    <select name="classificacoes" id="classificacoes" class="classificacoes"></select>
+                                    <select name="classificacoes" id="classificacoes" class="classificacoes">
+                                      <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
+                                    </select>
                                 </div>
 
                                 <div class="legendaComInputLinkCapaFilmeEdicao">
@@ -464,8 +460,8 @@ function criarModalEdicao(filme) {
     </div>
     </div>
      `
-     return modal
-  }  
+    return modal
+  }
   if (
     filme.data_relancamento == undefined ||
     filme.data_relancamento == '' ||
@@ -487,7 +483,9 @@ function criarModalEdicao(filme) {
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
                                     <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
-                                    <select name="classificacoes" id="classificacoes" class="classificacoes"></select>
+                                    <select name="classificacoes" id="classificacoes" class="classificacoes">
+                                      <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
+                                    </select>
                                 </div>
 
                                 <div class="legendaComInputLinkCapaFilmeEdicao">
@@ -538,10 +536,10 @@ function criarModalEdicao(filme) {
     </div>
     </div>
      `
-     return modal
+    return modal
   }
 
-  
+
 }
 
 window.onload = async () => {
