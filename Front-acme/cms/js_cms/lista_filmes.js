@@ -595,11 +595,9 @@ function criaModalPostagemFilme() {
   const legendaClassificacaoFilmeCriacao = document.createElement('h2')
   legendaClassificacaoFilmeCriacao.classList.add('legendaClassificacaoFilmeCriacao')
   legendaClassificacaoFilmeCriacao.textContent = "Escolha a classificação do novo filme:"
-
   const classificacoesCriacao = document.createElement('select')
   classificacoesCriacao.classList.add('classificacoesCriacao')
   classificacoesCriacao.setAttribute('id', 'classificacoesCriacao')
-
   const optionClassificacao = document.createElement('option')
   optionClassificacao.classList.add('optionClassificacao', 'optionPadrao')
   optionClassificacao.textContent = "Selecione a classificação aqui!"
@@ -702,6 +700,13 @@ function criaModalPostagemFilme() {
   btn_Criar_Filme.textContent = 'Criar Filme!'
 
 
+  paginaCriacaoFilmes.append(cardPaginaCriacaoIMG, infoFilmePaginaCriacao)
+  sairCriacao.appendChild(btn_sairCriacao)
+  holderBotaoSairCriacao.appendChild(sairCriacao)
+  modal_body.append(holderBotaoSairCriacao, paginaCriacaoFilmes)
+  modal_content.appendChild(modal_body)
+  modal_dialog.appendChild(modal_content)
+  
 }
 
 window.onload = async () => {
