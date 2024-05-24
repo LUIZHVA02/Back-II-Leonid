@@ -101,7 +101,7 @@ function criarItensLista(filme) {
     var myModal = new bootstrap.Modal(modal)
     myModal.show()
 
-    const btnSair = document.getElementById('btn-close')
+    const btnSair = document.getElementById('btn_close')
     btnSair.addEventListener('click', () => {
       const modalUserView = document.getElementById("staticBackdrop")
       modalUserView.parentNode.removeChild(modalUserView)
@@ -129,11 +129,10 @@ function criarItensLista(filme) {
     document.body.appendChild(modal)
     var myModal = new bootstrap.Modal(modal)
     myModal.show()
-    preencherSelectClassificacoes()
+    preencherSelectClassificacoes("classificacoes")
 
     const btnSalvar = document.getElementById('btn_Salvar')
     btnSalvar.addEventListener('click', async () => {
-
 
       const selectClassificacoes = document.getElementById('classificacoes')
       const option = selectClassificacoes.options[selectClassificacoes.selectedIndex].text
@@ -162,7 +161,6 @@ function criarItensLista(filme) {
 
       const filmeAtualizado = await putFilme(novoFilme)
 
-      console.log(filmeAtualizado, novoFilme);
     })
 
     const btnSair = document.getElementById('btn-sair')
@@ -230,8 +228,8 @@ function criarOpcoesClassificacoes(classificacoes) {
   return optionClassificacao
 }
 
-const preencherSelectClassificacoes = async function () {
-  const selectClassificacoes = document.getElementById('classificacoes')
+const preencherSelectClassificacoes = async function (idDesejado) {
+  const selectClassificacoes = document.getElementById(idDesejado)
   const classificacoes = await getClassificacoes()
 
   classificacoes.forEach(classificacao => {
@@ -248,8 +246,8 @@ function criarModalUserView(filme) {
   modal.setAttribute('tabindex', '-1')
   modal.setAttribute('aria-labelledby', 'staticBackdropLabel')
   modal.setAttribute('aria-hidden', 'true')
-  modal.setAttribute('data-bs-backdrop','static')
-  modal.setAttribute('data-bs-keyboard','false')
+  modal.setAttribute('data-bs-backdrop', 'static')
+  modal.setAttribute('data-bs-keyboard', 'false')
   modal.setAttribute('id', 'staticBackdrop')
 
 
@@ -265,7 +263,7 @@ function criarModalUserView(filme) {
               <div class="modal-body">
                 <div class="botao-sair">
                   <div class="sair">
-                    <button type="button" class="btn-close" id="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-sair" id="btn_close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                 </div>
                 <div class="cardPaginaUserViewFilmes">
@@ -302,7 +300,7 @@ function criarModalUserView(filme) {
                     <div class="valorECompraUserView">
                       <div class="legendaComValorUnitario">
                         <h1 class="legendaValorUserView">Valor Unitário:</h1>
-                        <h1 class="valorUnitarioPaginaUserView">${filme.valor_unitario}</h1>
+                        <h1 class="valorUnitarioPaginaUserView">${tratarValorUnitario(filme.valor_unitario)}</h1>
                       </div>
                       <button class="btn btn-primary btn-lg btn_comprarUserView">Comprar</button>
                       </div>
@@ -325,7 +323,7 @@ function criarModalUserView(filme) {
           <div class="modal-body">
             <div class="botao-sair">
               <div class="sair">
-                <button type="button" class="btn-close btn-sair" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-sair" id="btn_close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
             </div>
             <div class="cardPaginaUserViewFilmes">
@@ -358,7 +356,7 @@ function criarModalUserView(filme) {
                 <div class="valorECompraUserView">
                   <div class="legendaComValorUnitarioUserView">
                     <h1 class="legendaValorUserView">Valor Unitário:</h1>
-                    <h1 class="valorUnitarioPaginaUserView">${filme.valor_unitario}</h1>
+                    <h1 class="valorUnitarioPaginaUserView">${tratarValorUnitario(filme.valor_unitario)}</h1>
                   </div>
                   <button class="btn btn-primary btn-lg btn_comprarUserView">Comprar</button>
                   </div>
@@ -380,10 +378,10 @@ function criarModalEdicao(filme) {
   modal.setAttribute('tabindex', '-1')
   modal.setAttribute('aria-labelledby', 'staticBackdropLabel')
   modal.setAttribute('aria-hidden', 'true')
-  modal.setAttribute('data-bs-backdrop','static')
-  modal.setAttribute('data-bs-keyboard','false')
+  modal.setAttribute('data-bs-backdrop', 'static')
+  modal.setAttribute('data-bs-keyboard', 'false')
   modal.setAttribute('id', 'staticBackdrop')
- 
+
 
   // Conteúdo do modal
   if (
@@ -406,7 +404,7 @@ function criarModalEdicao(filme) {
                         <div class="cardPaginaEdicaoIMG">
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
-                                    <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
+                                    <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
                                     <select name="classificacoes" id="classificacoes" class="classificacoes">
                                       <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
                                     </select>
@@ -482,7 +480,7 @@ function criarModalEdicao(filme) {
                         <div class="cardPaginaEdicaoIMG">
                             <div class="imgPaginaEdicao">
                                 <div class="classificacaoEdicao">
-                                    <h2 class="legendaClassificacaoFilmeEdicao">Digite a nova classificação do filme:</h2>
+                                    <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
                                     <select name="classificacoes" id="classificacoes" class="classificacoes">
                                       <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
                                     </select>
@@ -538,6 +536,170 @@ function criarModalEdicao(filme) {
      `
     return modal
   }
+}
+
+function criaModalPostagemFilme() {
+
+
+  const modal = document.createElement('div')
+  modal.classList.add('modal', 'fade')
+  modal.setAttribute('tabindex', '-1')
+  modal.setAttribute('aria-labelledby', 'staticBackdropLabel')
+  modal.setAttribute('aria-hidden', 'true')
+  modal.setAttribute('data-bs-backdrop', 'static')
+  modal.setAttribute('data-bs-keyboard', 'false')
+  modal.setAttribute('id', 'staticBackdrop1')
+
+  const modal_dialog = document.createElement('div')
+  modal_dialog.classList.add('modal-dialog', 'modal-xl', 'modal-dialog-centered')
+
+  const modal_content = document.createElement('div')
+  modal_content.classList.add('modal-content')
+
+  const modal_body = document.createElement('div')
+  modal_body.classList.add('modal-body')
+
+  const holderBotaoSairCriacao = document.createElement('div')
+  holderBotaoSairCriacao.classList.add('holderBotaoSairCriacao')
+
+  const sairCriacao = document.createElement('div')
+  sairCriacao.classList.add('sairCriacao')
+
+  const btn_sairCriacao = document.createElement('button')
+  btn_sairCriacao.classList.add("btn-close", "btn-sair")
+  btn_sairCriacao.setAttribute('id', 'btn-sair')
+  btn_sairCriacao.setAttribute('data-bs-dismiss', 'modal')
+  btn_sairCriacao.setAttribute('aria-label', 'Close')
+  btn_sairCriacao.type = "button"
+
+  btn_sairCriacao.addEventListener('click', () => {
+    const modalCriacao = document.getElementById("staticBackdrop")
+    modalCriacao.parentNode.removeChild(modalCriacao)
+  })
+
+  const paginaCriacaoFilmes = document.createElement('div')
+  paginaCriacaoFilmes.classList.add('paginaCriacaoFilmes')
+
+  const campoImagemClassificacaoCriacao = document.createElement('div')
+  campoImagemClassificacaoCriacao.classList.add('campoImagemClassificacaoCriacao')
+
+  const cardPaginaCriacaoIMG = document.createElement('div')
+  cardPaginaCriacaoIMG.classList.add('cardPaginaCriacaoIMG')
+
+  const imgPaginaCriacao = document.createElement('div')
+  imgPaginaCriacao.classList.add('imgPaginaCriacao')
+
+  const classificacaoCriacao = document.createElement('div')
+  classificacaoCriacao.classList.add('classificacaoCriacao')
+
+  const legendaClassificacaoFilmeCriacao = document.createElement('h2')
+  legendaClassificacaoFilmeCriacao.classList.add('legendaClassificacaoFilmeCriacao')
+  legendaClassificacaoFilmeCriacao.textContent = "Escolha a classificação do novo filme:"
+
+  const classificacoesCriacao = document.createElement('select')
+  classificacoesCriacao.classList.add('classificacoesCriacao')
+  classificacoesCriacao.setAttribute('id', 'classificacoesCriacao')
+
+  const optionClassificacao = document.createElement('option')
+  optionClassificacao.classList.add('optionClassificacao', 'optionPadrao')
+  optionClassificacao.textContent = "Selecione a classificação aqui!"
+
+  const legendaComInputLinkCapaFilmeCriacao = document.createElement('div')
+  legendaComInputLinkCapaFilmeCriacao.classList.add('legendaComInputLinkCapaFilmeCriacao')
+
+  const legendaCapaFilmeCriacao = document.createElement('h2')
+  legendaCapaFilmeCriacao.classList.add('legendaCapaFilmeCriacao')
+  legendaCapaFilmeCriacao.textContent = "Digite o link da capa do novo filme:"
+
+  const imgCapaFilmeCriacao = document.createElement('input')
+  imgCapaFilmeCriacao.classList.add('imgCapaFilmeCriacao')
+  imgCapaFilmeCriacao.setAttribute('id', 'imgCapaFilmeCriacao')
+  imgCapaFilmeCriacao.type = "url"
+
+
+  const infoFilmePaginaCriacao = document.createElement('div')
+  infoFilmePaginaCriacao.classList.add('infoFilmePaginaCriacao')
+
+  const tituloPaginaCriacao = document.createElement('input')
+  tituloPaginaCriacao.classList.add('tituloPaginaCriacao')
+  tituloPaginaCriacao.setAttribute('id', 'tituloPaginaCriacao')
+  tituloPaginaCriacao.value = "Insira o nome do novo filme aqui!"
+  tituloPaginaCriacao.type = 'text'
+
+  const legendaComSinopsePaginaCriacao = document.createElement('div')
+  legendaComSinopsePaginaCriacao.classList.add('legendaComSinopsePaginaCriacao')
+
+  const legendaSinopsePaginaCriacao = document.createElement('h1')
+  legendaSinopsePaginaCriacao.classList.add('legendaSinopsePaginaCriacao')
+  legendaSinopsePaginaCriacao.textContent = "Sinopse:"
+
+  const sinopsePaginaCriacao = document.createElement('textarea')
+  sinopsePaginaCriacao.classList.add('sinopsePaginaCriacao')
+  sinopsePaginaCriacao.setAttribute('id', 'sinopsePaginaCriacao')
+  sinopsePaginaCriacao.setAttribute('cols', '80')
+  sinopsePaginaCriacao.setAttribute('rows', '6')
+
+
+  const dtLanca_RelancaPaginaCriacao = document.createElement('div')
+  dtLanca_RelancaPaginaCriacao.classList.add('dtLanca_RelancaPaginaCriacao')
+
+  const legendaComDtLancaPaginaCriacao = document.createElement('div')
+  legendaComDtLancaPaginaCriacao.classList.add('legendaComDtLancaPaginaCriacao')
+
+  const legendadtLancaPaginaCriacao = document.createElement('h1')
+  legendadtLancaPaginaCriacao.classList.add('legendadtLancaPaginaCriacao')
+  legendadtLancaPaginaCriacao.textContent = 'Data Lançamento:'
+
+  const dtLancaPaginaCriacao = document.createElement('input')
+  dtLancaPaginaCriacao.classList.add('dtLancaPaginaCriacao')
+  dtLancaPaginaCriacao.setAttribute('id', 'dtLancaPaginaCriacao')
+  dtLancaPaginaCriacao.type('date')
+
+
+  const legendaComDtRelancaPaginaCriacao = document.createElement('div')
+  legendaComDtRelancaPaginaCriacao.classList.add('legendaComDtRelancaPaginaCriacao')
+
+  const legendadtRelancaPaginaCriacao = document.createElement('h1')
+  legendadtRelancaPaginaCriacao.classList.add('legendadtRelancaPaginaCriacao')
+  legendadtRelancaPaginaCriacao.textContent = 'Data Relançamento:'
+
+  const dtRelancaPaginaCriacao = document.createElement('input')
+  dtRelancaPaginaCriacao.classList.add('dtRelancaPaginaCriacao')
+  dtRelancaPaginaCriacao.setAttribute('id', 'dtRelancaPaginaCriacao')
+  dtRelancaPaginaCriacao.type('date')
+
+  const legendaComDuracaoCriacao = document.createElement('div')
+  legendaComDuracaoCriacao.classList.add('legendaComDuracaoCriacao')
+
+  const legendaDuracaoCriacao = document.createElement('h1')
+  legendaDuracaoCriacao.classList.add('legendaDuracaoCriacao')
+  legendaDuracaoCriacao.textContent = 'Duração:'
+
+  const duracaoPaginaCriacao = document.createElement('input')
+  duracaoPaginaCriacao.classList.add('duracaoPaginaCriacao')
+  duracaoPaginaCriacao.setAttribute('id', 'duracaoPaginaCriacao')
+  duracaoPaginaCriacao.type('time')
+
+  const valorECompraCriacao = document.createElement('div')
+  valorECompraCriacao.classList.add('valorECompraCriacao')
+
+  const legendaComValorUnitarioCriacao = document.createElement('div')
+  legendaComValorUnitarioCriacao.classList.add('legendaComValorUnitarioCriacao')
+
+  const legendaValorCriacao = document.createElement('h1')
+  legendaValorCriacao.classList.add('legendaValorCriacao')
+  legendaValorCriacao.textContent = 'Valor Unitário:'
+
+  const valorUnitarioPaginaCriacao = document.createElement('input')
+  valorUnitarioPaginaCriacao.classList.add('valorUnitarioPaginaCriacao')
+  valorUnitarioPaginaCriacao.setAttribute('id', 'valorUnitarioPaginaCriacao')
+  valorUnitarioPaginaCriacao.type('number')
+
+  const btn_Criar_Filme = document.createElement('button')
+  btn_Criar_Filme.classList.add("btn", "btn-primary", "btn-lg", "btn_Criar_Filme")
+  btn_Criar_Filme.setAttribute('id', 'btn_Criar_Filme')
+  btn_Criar_Filme.type = "button"
+  btn_Criar_Filme.textContent = 'Criar Filme!'
 
 
 }
