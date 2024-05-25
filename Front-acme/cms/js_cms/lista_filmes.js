@@ -10,6 +10,11 @@ export function criarBarraPesquisa() {
   menuBurguer.classList.add('menuBurguer')
   const buttonMenu = document.createElement('button')
   buttonMenu.classList.add('buttonMenu')
+  buttonMenu.setAttribute('id', 'buttonMenu')
+  buttonMenu.setAttribute('data-bs-toggle',"offcanvas")
+  buttonMenu.setAttribute('data-bs-target', '#staticBackdrop')
+  buttonMenu.setAttribute('aria-controls', 'staticBackdrop')
+
   const imgMenuBurguer = document.createElement('img')
   imgMenuBurguer.src = '../../image/png/menu-burguer.png'
 
@@ -32,6 +37,15 @@ export function criarBarraPesquisa() {
   const imgLupa = document.createElement('img')
   imgLupa.src = '../../image/png/lupa.png'
 
+  const iconPerfil = document.createElement('div')
+  iconPerfil.classList.add('iconPerfil')
+
+  const buttonPerfil = document.createElement('button')
+  buttonPerfil.classList.add('buttonPerfil')
+
+  const imgIconPerfil = document.createElement('img')
+  imgIconPerfil.src = '../../image/png/botão-perfil.png'
+
   barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
 
   menuBurguer.appendChild(buttonMenu)
@@ -44,6 +58,9 @@ export function criarBarraPesquisa() {
 
   iconPesquisa.appendChild(buttonPesquisa)
   buttonPesquisa.appendChild(imgLupa)
+
+  iconPerfil.appendChild(buttonPerfil)
+  buttonPerfil.appendChild(imgIconPerfil)
 
   return barraPesquisa
 }

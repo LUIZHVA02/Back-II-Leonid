@@ -11,6 +11,9 @@ export function criarBarraPesquisa() {
   const buttonMenu = document.createElement('button')
   buttonMenu.classList.add('buttonMenu')
   buttonMenu.setAttribute('id', 'buttonMenu')
+  buttonMenu.setAttribute('data-bs-toggle',"offcanvas")
+  buttonMenu.setAttribute('data-bs-target', '#staticBackdrop')
+  buttonMenu.setAttribute('aria-controls', 'staticBackdrop')
   const imgMenuBurguer = document.createElement('img')
   imgMenuBurguer.src = './image/png/menu-burguer.png'
 
@@ -39,9 +42,19 @@ export function criarBarraPesquisa() {
     fazerPesquisa(inputPesquisa.value)
   }
 
-
   const imgLupa = document.createElement('img')
   imgLupa.src = './image/png/lupa.png'
+
+
+  const iconPerfil = document.createElement('div')
+  iconPerfil.classList.add('iconPerfil')
+  const buttonPerfil = document.createElement('button')
+  buttonPerfil.classList.add('buttonPerfil')
+  buttonPerfil.setAttribute('id','buttonPerfil')
+  buttonPerfil.setAttribute('data-bs-toggle','modal')
+  buttonPerfil.setAttribute('data-bs-target','#exampleModalLogin')
+  const imgIconPerfil = document.createElement('img')
+  imgIconPerfil.src = './image/png/botão-perfil.png'
 
   barraPesquisa.append(menuBurguer, logo, campoPesquisa, iconPerfil)
 
@@ -55,6 +68,9 @@ export function criarBarraPesquisa() {
 
   iconPesquisa.appendChild(buttonPesquisa)
   buttonPesquisa.appendChild(imgLupa)
+
+  iconPerfil.appendChild(buttonPerfil)
+  buttonPerfil.appendChild(imgIconPerfil)
 
   return barraPesquisa
 }

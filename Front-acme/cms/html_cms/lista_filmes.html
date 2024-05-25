@@ -17,20 +17,14 @@
 
 <body>
     <header>
-        <div class="barraPesquisa" id="barraPesquisa">
-
-            <div class="iconPerfil" id="iconPerfil">
-                <button class="buttonPerfil" id="buttonPerfil">
-                    <img src="../../image/png/botão-perfil.png" alt="perfil">
-                </button>
-            </div>
-        </div>
+        <div class="barraPesquisa" id="barraPesquisa"></div>
     </header>
 
     <main>
         <div class="holderBtnCriacaoItem" id="holderBtnCriacaoItem">
             <button type="button" class="btnMostrarModalCriacao" id="btnMostrarModalCriacao">
-                <h2 class="legendaCriarItem">Adicionar um Filme </h2> <img src="../../image/png/icon_mais.png" class="imgAddFilme" alt="perfil">
+                <h2 class="legendaCriarItem">Adicionar um Filme </h2> <img src="../../image/png/icon_mais.png"
+                    class="imgAddFilme" alt="perfil">
             </button>
         </div>
         <div class="containerLista" id="containerLista">
@@ -61,7 +55,22 @@
         integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
         crossorigin="anonymous"></script>
     <script src="../../js/modais.js"></script>
-
 </body>
+
+<div class="offcanvas offcanvas-start" data-bs-backdrop="static" tabindex="-1" id="staticBackdrop" aria-labelledby="staticBackdropLabel">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title" id="offcanvasExampleLabel">Acme Filmes</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div class="btn-group-vertical" role="group" aria-label="Vertical button group">
+            <button type="button" class="btn btn-outline-primary"><a href="../../home.html">Página Inicial</a></button>
+            <button type="button" class="btn btn-outline-primary"><a
+                    href="../../landing_page/html/login_user.html">Login de Usuário</a></button>
+            <button type="button" class="btn btn-outline-primary"><a
+                    href="../../landing_page/html/cadastro_user.html">Cadastro de Usuário</a></button>
+        </div>
+    </div>
+</div>
 
 </html>

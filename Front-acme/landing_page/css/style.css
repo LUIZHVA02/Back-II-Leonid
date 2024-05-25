@@ -17,6 +17,28 @@ main {
     background-color: #AF0F0F;
 }
 
+.loginUser a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.signUpUser a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.modal-body{
+    background-color: #AF0F0F;
+}
+
+.modal-body h1{
+    color: #FFF;
+}
+
+.modal-content{
+    background-color: #AF0F0F;
+}
+
 .cardsHolder{
     display: grid;
     padding: 40px;
@@ -68,14 +90,6 @@ main {
     height: 35vh;
     width: 12vw;
 }
-.avaliacoes{
-    
-}
-.starIMG{
-    background-image: url("../../image/png/Star.png");
-    background-repeat: no-repeat;
-    background-size: contain;
-}
 
 .infoFilme{
     width: 13vw;
@@ -114,10 +128,6 @@ main {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-}
-
-.modal-body{
-    background-color: #AF0F0F;
 }
 
 .sair{

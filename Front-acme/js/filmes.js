@@ -58,7 +58,7 @@ export async function putFilme (filme) {
     }
     const response = await fetch(url,options)
 
-    window.location.reload()
+    // window.location.reload()
 
     return response.ok
 }
