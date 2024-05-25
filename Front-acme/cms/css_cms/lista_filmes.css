@@ -12,6 +12,7 @@ header{
 }
 
 main{
+    padding: 0px 32px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -25,7 +26,7 @@ main{
     align-items: center;
     justify-content: center;
     height: 70vh;
-    width: 95vw;
+    width: 100%;
     background-color: #336DAF;
     border-radius: 10px;
 }
@@ -36,14 +37,14 @@ main{
     align-items: center;
     justify-content: center;
     height: 68vh;
-    width: 94vw;
+    width: 95vw;
     background-color: #AF0F0F;
     border-radius: 10px;
 }
 
 .lista{
     height: 66vh;
-    width: 94vw;
+    width: 95vw;
     overflow-y: auto;
     background-color: #AF0F0F;
     border-radius: 10px;
@@ -632,6 +633,42 @@ main{
 .btn_comprarUserView{
     background-color: #336DAF;
     color: #ffff;
+}
+
+.holderBtnCriacaoItem{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: end;
+}
+
+.btnMostrarModalCriacao{
+    height: 48px;
+    width: 256px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 4px;
+    background-color: #336DAF;
+    border-radius: 10px;
+    border: none;
+}
+
+.legendaCriarItem{
+    height: 16px;
+    font-size: 20px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.imgAddFilme{
+    height: 32px;
+    width: 32px;
 }
 
 .sairCriacao{
