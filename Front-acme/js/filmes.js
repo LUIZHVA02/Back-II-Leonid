@@ -30,7 +30,7 @@ export async function getFotoFilmes() {
 }
 
 export async function postFilme (filme) {
-    const url = `${link}/v2/acmefilmes/filme/`
+    const url = `${link}/v2/acmefilmes/insertFilme/`
     
     const options = {
         method: 'POST',
@@ -40,6 +40,8 @@ export async function postFilme (filme) {
         body: JSON.stringify(filme)
     }
     const response = await fetch(url,options)
+
+    window.location.reload()
 
     return response.ok
 }

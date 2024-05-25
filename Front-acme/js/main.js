@@ -166,14 +166,6 @@ function criarModal(filme) {
                 <div class="classificacao">
               <img src="${filme.imagem}" alt="">
             </div>
-            <div class="avaliacoes">
-              <h1 class="numEstrelas"></h1>
-              <img class="starIMG">
-            </div>
-              </div>
-            </div>
-            </div>
-
               <div class="infoFilmePagina">
                 <h2 class="tituloPagina">${filme.nome}</h2>
                 <div class="legendaComSinopsePagina">

@@ -228,7 +228,7 @@ function criarOpcoesClassificacoes(classificacoes) {
   return optionClassificacao
 }
 
-const preencherSelectClassificacoes = async function (idDesejado) {
+async function preencherSelectClassificacoes(idDesejado) {
   const selectClassificacoes = document.getElementById(idDesejado)
   const classificacoes = await getClassificacoes()
 
@@ -390,73 +390,75 @@ function criarModalEdicao(filme) {
     filme.data_relancamento != null
   ) {
     modal.innerHTML = `
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="botao-sair">
-                    <div class="sair">
-                        <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+<div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="botao-sair">
+                <div class="sair">
+                    <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="cardPaginaEdicaoFilmes">
+                <div class="campoImagemClassificacaoEdicao">
+                    <div class="cardPaginaEdicaoIMG">
+                        <div class="imgPaginaEdicao">
+                            <div class="classificacaoEdicao">
+                                <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
+                                <select name="classificacoes" id="classificacoes" class="classificacoes">
+                                    <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="legendaComInputLinkCapaFilmeEdicao">
+                                <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
+                                <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao"
+                                    value="${filme.foto_capa}">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="cardPaginaEdicaoFilmes">
-                    <div class="campoImagemClassificacaoEdicao">
-                        <div class="cardPaginaEdicaoIMG">
-                            <div class="imgPaginaEdicao">
-                                <div class="classificacaoEdicao">
-                                    <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
-                                    <select name="classificacoes" id="classificacoes" class="classificacoes">
-                                      <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
-                                    </select>
-                                </div>
 
-                                <div class="legendaComInputLinkCapaFilmeEdicao">
-                                    <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
-                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="${filme.foto_capa}">
-                                </div>
-                            </div>
-                        </div>
-    
+                <div class="infoFilmePaginaEdicao">
+                    <input type="text" class="tituloPaginaEdicao" id="tituloPaginaEdicao" value="${filme.nome}">
+                    <div class="legendaComSinopsePaginaEdicao">
+                        <h1 class="legendaSinopsePaginaEdicao">Sinopse:</h1>
+                        <textarea class="sinopsePaginaEdicao" id="sinopsePaginaEdicao" cols="80"
+                            rows="6">${filme.sinopse}</textarea>
                     </div>
-                    <div class="infoFilmePaginaEdicao">
-                        <input type="text" class="tituloPaginaEdicao" id="tituloPaginaEdicao" value="${filme.nome}">
-                        <div class="legendaComSinopsePaginaEdicao">
-                            <h1 class="legendaSinopsePaginaEdicao">Sinopse:</h1>
-                            <textarea class="sinopsePaginaEdicao" id="sinopsePaginaEdicao" cols="80"
-                                rows="6">${filme.sinopse}</textarea>
+                    <div class="dtLanca_RelancaPaginaEdicao">
+                        <div class="legendaComDtLancaPaginaEdicao">
+                            <h1 class="legendadtLancaPaginaEdicao">Data Lançamento:</h1>
+                            <input type="date" id="dtLancaPaginaEdicao" class="dtLancaPaginaEdicao"
+                                value="${tratarDataSimples(filme.data_lancamento)}">
+
                         </div>
-                        <div class="dtLanca_RelancaPaginaEdicao">
-                            <div class="legendaComDtLancaPaginaEdicao">
-                                <h1 class="legendadtLancaPaginaEdicao">Data Lançamento:</h1>
-                                <input type="date" id="dtLancaPaginaEdicao" class="dtLancaPaginaEdicao"
-                                    value="${tratarDataSimples(filme.data_lancamento)}">
-    
-                            </div>
-                            <div class="legendaComDtRelancaPaginaEdicao">
-                                <h1 class="legendadtRelancaPaginaEdicao">Data Relançamento:</h1>
-                                <input type="date" id="dtRelancaPaginaEdicao" class="dtRelancaPaginaEdicao"
-                                    value="${tratarDataSimples(filme.data_relancamento)}">
-    
-                            </div>
+                        <div class="legendaComDtRelancaPaginaEdicao">
+                            <h1 class="legendadtRelancaPaginaEdicao">Data Relançamento:</h1>
+                            <input type="date" id="dtRelancaPaginaEdicao" class="dtRelancaPaginaEdicao"
+                                value="${tratarDataSimples(filme.data_relancamento)}">
+
                         </div>
-                        <div class="legendaComDuracaoEdicao">
-                            <h1 class="legendaDuracaoEdicao">Duração:</h1>
-                            <input type="time" id="duracaoPaginaEdicao" class="duracaoPaginaEdicao"
-                                value="${tratarDuracaoSimples(filme.duracao)}">
+                    </div>
+                    <div class="legendaComDuracaoEdicao">
+                        <h1 class="legendaDuracaoEdicao">Duração:</h1>
+                        <input type="time" id="duracaoPaginaEdicao" class="duracaoPaginaEdicao"
+                            value="${tratarDuracaoSimples(filme.duracao)}">
+                    </div>
+                    <div class="valorECompraEdicao">
+                        <div class="legendaComValorUnitarioEdicao">
+                            <h1 class="legendaValorEdicao">Valor Unitário:</h1>
+                            <input type="number" id="valorUnitarioPaginaEdicao" class="valorUnitarioPaginaEdicao"
+                                value="${tratarValorUnitario(filme.valor_unitario)}">
                         </div>
-                        <div class="valorECompraEdicao">
-                            <div class="legendaComValorUnitarioEdicao">
-                                <h1 class="legendaValorEdicao">Valor Unitário:</h1>
-                                <input type="number" id="valorUnitarioPaginaEdicao" class="valorUnitarioPaginaEdicao" value="${tratarValorUnitario(filme.valor_unitario)}">
-                            </div>
-                            <button class="btn btn-primary btn-lg btn_Salvar" id="btn_Salvar">Salvar Alterações</button>
-                        </div>
+                        <button class="btn btn-primary btn-lg btn_Salvar" id="btn_Salvar">Salvar Alterações</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
      `
     return modal
   }
@@ -466,80 +468,131 @@ function criarModalEdicao(filme) {
     filme.data_relancamento == null
   ) {
     modal.innerHTML = `
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-            <div class="modal-body">
-                <div class="botao-sair">
-                    <div class="sair">
-                        <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
-                            aria-label="Close"></button>
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
+            <div class="botao-sair">
+                <div class="sair">
+                    <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
+                        aria-label="Close"></button>
+                </div>
+            </div>
+            <div class="cardPaginaEdicaoFilmes">
+                <div class="campoImagemClassificacaoEdicao">
+                    <div class="cardPaginaEdicaoIMG">
+                        <div class="imgPaginaEdicao">
+                            <div class="classificacaoEdicao">
+                                <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
+                                <select name="classificacoes" id="classificacoes" class="classificacoes">
+                                    <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="legendaComInputLinkCapaFilmeEdicao">
+                                <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
+                                <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao"
+                                    value="${filme.foto_capa}">
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="cardPaginaEdicaoFilmes">
-                    <div class="campoImagemClassificacaoEdicao">
-                        <div class="cardPaginaEdicaoIMG">
-                            <div class="imgPaginaEdicao">
-                                <div class="classificacaoEdicao">
-                                    <h2 class="legendaClassificacaoFilmeEdicao">Escolha a nova classificação do filme:</h2>
-                                    <select name="classificacoes" id="classificacoes" class="classificacoes">
-                                      <option class="optionClassificacao optionPadrao">Selecione a categoria aqui!</option>
-                                    </select>
-                                </div>
 
-                                <div class="legendaComInputLinkCapaFilmeEdicao">
-                                    <h2 class="legendaCapaFilmeEdicao">Digite o link da nova capa do filme:</h2>
-                                    <input type="url" class="imgCapaFilmeEdicao" id="imgCapaFilmeEdicao" value="${filme.foto_capa}">
-                                </div>
-                            </div>
-                        </div>
-    
+                <div class="infoFilmePaginaEdicao">
+                    <input type="text" class="tituloPaginaEdicao" id="tituloPaginaEdicao" value="${filme.nome}">
+                    <div class="legendaComSinopsePaginaEdicao">
+                        <h1 class="legendaSinopsePaginaEdicao">Sinopse:</h1>
+                        <textarea class="sinopsePaginaEdicao" id="sinopsePaginaEdicao" cols="80"
+                            rows="6">${filme.sinopse}</textarea>
                     </div>
-                    <div class="infoFilmePaginaEdicao">
-                        <input type="text" class="tituloPaginaEdicao" id="tituloPaginaEdicao" value="${filme.nome}">
-                        <div class="legendaComSinopsePaginaEdicao">
-                            <h1 class="legendaSinopsePaginaEdicao">Sinopse:</h1>
-                            <textarea class="sinopsePaginaEdicao" id="sinopsePaginaEdicao" cols="80"
-                                rows="6">${filme.sinopse}</textarea>
+                    <div class="dtLanca_RelancaPaginaEdicao">
+                        <div class="legendaComDtLancaPaginaEdicao">
+                            <h1 class="legendadtLancaPaginaEdicao">Data Lançamento:</h1>
+                            <input type="date" id="dtLancaPaginaEdicao" class="dtLancaPaginaEdicao"
+                                value="${tratarDataSimples(filme.data_lancamento)}">
+
                         </div>
-                        <div class="dtLanca_RelancaPaginaEdicao">
-                            <div class="legendaComDtLancaPaginaEdicao">
-                                <h1 class="legendadtLancaPaginaEdicao">Data Lançamento:</h1>
-                                <input type="date" id="dtLancaPaginaEdicao" class="dtLancaPaginaEdicao"
-                                    value="${tratarDataSimples(filme.data_lancamento)}">
-    
-                            </div>
-                            <div class="legendaComDtRelancaPaginaEdicao">
-                                <h1 class="legendadtRelancaPaginaEdicao">Data Relançamento:</h1>
-                                <input type="date" id="dtRelancaPaginaEdicao" class="dtRelancaPaginaEdicao"
-                                    value="">
-    
-                            </div>
+                        <div class="legendaComDtRelancaPaginaEdicao">
+                            <h1 class="legendadtRelancaPaginaEdicao">Data Relançamento:</h1>
+                            <input type="date" id="dtRelancaPaginaEdicao" class="dtRelancaPaginaEdicao"
+                                value="">
+
                         </div>
-                        <div class="legendaComDuracaoEdicao">
-                            <h1 class="legendaDuracaoEdicao">Duração:</h1>
-                            <input type="time" id="duracaoPaginaEdicao" class="duracaoPaginaEdicao"
-                                value="${tratarDuracaoSimples(filme.duracao)}">
+                    </div>
+                    <div class="legendaComDuracaoEdicao">
+                        <h1 class="legendaDuracaoEdicao">Duração:</h1>
+                        <input type="time" id="duracaoPaginaEdicao" class="duracaoPaginaEdicao"
+                            value="${tratarDuracaoSimples(filme.duracao)}">
+                    </div>
+                    <div class="valorECompraEdicao">
+                        <div class="legendaComValorUnitarioEdicao">
+                            <h1 class="legendaValorEdicao">Valor Unitário:</h1>
+                            <input type="number" id="valorUnitarioPaginaEdicao" class="valorUnitarioPaginaEdicao"
+                                value="${tratarValorUnitario(filme.valor_unitario)}">
                         </div>
-                        <div class="valorECompraEdicao">
-                            <div class="legendaComValorUnitarioEdicao">
-                                <h1 class="legendaValorEdicao">Valor Unitário:</h1>
-                                <input type="number" id="valorUnitarioPaginaEdicao" class="valorUnitarioPaginaEdicao" value="${tratarValorUnitario(filme.valor_unitario)}">
-                            </div>
-                            <button class="btn btn-primary btn-lg btn_Salvar" id="btn_Salvar">Salvar Alterações</button>
-                        </div>
+                        <button class="btn btn-primary btn-lg btn_Salvar" id="btn_Salvar">Salvar Alterações</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+</div>
      `
     return modal
   }
 }
 
-function criaModalPostagemFilme() {
+async function mostraModalCriacao() {
 
+  const btnCriacaoItem = document.getElementById('btnMostrarModalCriacao')
+  btnCriacaoItem.addEventListener('click',  (event) => {
+    event.stopPropagation()
+    const modal = criaModalPostagemFilme()
+    document.body.appendChild(modal)
+    var myModal = new bootstrap.Modal(modal)
+    myModal.show()
+    preencherSelectClassificacoes("selectClassificacoesCriacao")
+
+    const btn_Criar_Filme = document.getElementById('btn_Criar_Filme')
+    btn_Criar_Filme.addEventListener('click', async ()=>{
+
+      const selectClassificacoes = document.getElementById('selectClassificacoesCriacao')
+      const option = selectClassificacoes.options[selectClassificacoes.selectedIndex].text
+
+      const nome = document.getElementById('tituloPaginaCriacao').value
+      const sinopse = document.getElementById('sinopsePaginaCriacao').value
+      const duracao = document.getElementById('duracaoPaginaCriacao').value
+      const data_lancamento = document.getElementById('dtLancaPaginaCriacao').value
+      const data_relancamento = document.getElementById('dtRelancaPaginaCriacao').value
+      const foto_capa = document.getElementById('imgCapaFilmeCriacao').value
+      const valor_unitario = document.getElementById('valorUnitarioPaginaCriacao').value
+      const id_classificacao = option.split(" -")[0];
+
+      const novoFilme = {
+        nome,
+        sinopse,
+        duracao,
+        data_lancamento,
+        data_relancamento,
+        foto_capa,
+        valor_unitario,
+        id_classificacao
+      }
+
+      const inserirFilme = await postFilme(novoFilme)
+      console.log(inserirFilme, novoFilme);
+    })
+
+    const btn_sairCriacao = document.getElementById('btn_sairCriacao')
+    btn_sairCriacao.addEventListener('click', () => {
+      const modalCriacao = document.getElementById("staticBackdrop")
+      modalCriacao.parentNode.removeChild(modalCriacao)
+    })
+  })
+
+}
+
+function criaModalPostagemFilme() {
 
   const modal = document.createElement('div')
   modal.classList.add('modal', 'fade')
@@ -548,7 +601,7 @@ function criaModalPostagemFilme() {
   modal.setAttribute('aria-hidden', 'true')
   modal.setAttribute('data-bs-backdrop', 'static')
   modal.setAttribute('data-bs-keyboard', 'false')
-  modal.setAttribute('id', 'staticBackdrop1')
+  modal.setAttribute('id', 'staticBackdrop')
 
   const modal_dialog = document.createElement('div')
   modal_dialog.classList.add('modal-dialog', 'modal-xl', 'modal-dialog-centered')
@@ -559,23 +612,18 @@ function criaModalPostagemFilme() {
   const modal_body = document.createElement('div')
   modal_body.classList.add('modal-body')
 
+
   const holderBotaoSairCriacao = document.createElement('div')
   holderBotaoSairCriacao.classList.add('holderBotaoSairCriacao')
-
   const sairCriacao = document.createElement('div')
   sairCriacao.classList.add('sairCriacao')
-
   const btn_sairCriacao = document.createElement('button')
   btn_sairCriacao.classList.add("btn-close", "btn-sair")
-  btn_sairCriacao.setAttribute('id', 'btn-sair')
+  btn_sairCriacao.setAttribute('id', 'btn_sairCriacao')
   btn_sairCriacao.setAttribute('data-bs-dismiss', 'modal')
   btn_sairCriacao.setAttribute('aria-label', 'Close')
   btn_sairCriacao.type = "button"
 
-  btn_sairCriacao.addEventListener('click', () => {
-    const modalCriacao = document.getElementById("staticBackdrop")
-    modalCriacao.parentNode.removeChild(modalCriacao)
-  })
 
   const paginaCriacaoFilmes = document.createElement('div')
   paginaCriacaoFilmes.classList.add('paginaCriacaoFilmes')
@@ -585,30 +633,28 @@ function criaModalPostagemFilme() {
 
   const cardPaginaCriacaoIMG = document.createElement('div')
   cardPaginaCriacaoIMG.classList.add('cardPaginaCriacaoIMG')
-
   const imgPaginaCriacao = document.createElement('div')
   imgPaginaCriacao.classList.add('imgPaginaCriacao')
 
   const classificacaoCriacao = document.createElement('div')
   classificacaoCriacao.classList.add('classificacaoCriacao')
-
   const legendaClassificacaoFilmeCriacao = document.createElement('h2')
   legendaClassificacaoFilmeCriacao.classList.add('legendaClassificacaoFilmeCriacao')
   legendaClassificacaoFilmeCriacao.textContent = "Escolha a classificação do novo filme:"
-  const classificacoesCriacao = document.createElement('select')
-  classificacoesCriacao.classList.add('classificacoesCriacao')
-  classificacoesCriacao.setAttribute('id', 'classificacoesCriacao')
-  const optionClassificacao = document.createElement('option')
-  optionClassificacao.classList.add('optionClassificacao', 'optionPadrao')
-  optionClassificacao.textContent = "Selecione a classificação aqui!"
+
+  const selectClassificacoesCriacao = document.createElement('select')
+  selectClassificacoesCriacao.classList.add('selectClassificacoesCriacao')
+  selectClassificacoesCriacao.setAttribute('id', 'selectClassificacoesCriacao')
+  selectClassificacoesCriacao.required
+  const optionClassificacaoPadrao = document.createElement('option')
+  optionClassificacaoPadrao.classList.add('optionClassificacao', 'optionClassificacaoPadrao')
+  optionClassificacaoPadrao.textContent = "Selecione a classificação aqui!"
 
   const legendaComInputLinkCapaFilmeCriacao = document.createElement('div')
   legendaComInputLinkCapaFilmeCriacao.classList.add('legendaComInputLinkCapaFilmeCriacao')
-
   const legendaCapaFilmeCriacao = document.createElement('h2')
   legendaCapaFilmeCriacao.classList.add('legendaCapaFilmeCriacao')
   legendaCapaFilmeCriacao.textContent = "Digite o link da capa do novo filme:"
-
   const imgCapaFilmeCriacao = document.createElement('input')
   imgCapaFilmeCriacao.classList.add('imgCapaFilmeCriacao')
   imgCapaFilmeCriacao.setAttribute('id', 'imgCapaFilmeCriacao')
@@ -621,16 +667,15 @@ function criaModalPostagemFilme() {
   const tituloPaginaCriacao = document.createElement('input')
   tituloPaginaCriacao.classList.add('tituloPaginaCriacao')
   tituloPaginaCriacao.setAttribute('id', 'tituloPaginaCriacao')
-  tituloPaginaCriacao.value = "Insira o nome do novo filme aqui!"
+  tituloPaginaCriacao.placeholder = "Insira o nome do novo filme aqui!"
   tituloPaginaCriacao.type = 'text'
+
 
   const legendaComSinopsePaginaCriacao = document.createElement('div')
   legendaComSinopsePaginaCriacao.classList.add('legendaComSinopsePaginaCriacao')
-
   const legendaSinopsePaginaCriacao = document.createElement('h1')
   legendaSinopsePaginaCriacao.classList.add('legendaSinopsePaginaCriacao')
   legendaSinopsePaginaCriacao.textContent = "Sinopse:"
-
   const sinopsePaginaCriacao = document.createElement('textarea')
   sinopsePaginaCriacao.classList.add('sinopsePaginaCriacao')
   sinopsePaginaCriacao.setAttribute('id', 'sinopsePaginaCriacao')
@@ -643,55 +688,48 @@ function criaModalPostagemFilme() {
 
   const legendaComDtLancaPaginaCriacao = document.createElement('div')
   legendaComDtLancaPaginaCriacao.classList.add('legendaComDtLancaPaginaCriacao')
-
   const legendadtLancaPaginaCriacao = document.createElement('h1')
   legendadtLancaPaginaCriacao.classList.add('legendadtLancaPaginaCriacao')
   legendadtLancaPaginaCriacao.textContent = 'Data Lançamento:'
-
   const dtLancaPaginaCriacao = document.createElement('input')
   dtLancaPaginaCriacao.classList.add('dtLancaPaginaCriacao')
   dtLancaPaginaCriacao.setAttribute('id', 'dtLancaPaginaCriacao')
-  dtLancaPaginaCriacao.type('date')
-
+  dtLancaPaginaCriacao.type = 'date'
 
   const legendaComDtRelancaPaginaCriacao = document.createElement('div')
   legendaComDtRelancaPaginaCriacao.classList.add('legendaComDtRelancaPaginaCriacao')
-
   const legendadtRelancaPaginaCriacao = document.createElement('h1')
   legendadtRelancaPaginaCriacao.classList.add('legendadtRelancaPaginaCriacao')
   legendadtRelancaPaginaCriacao.textContent = 'Data Relançamento:'
-
   const dtRelancaPaginaCriacao = document.createElement('input')
   dtRelancaPaginaCriacao.classList.add('dtRelancaPaginaCriacao')
   dtRelancaPaginaCriacao.setAttribute('id', 'dtRelancaPaginaCriacao')
-  dtRelancaPaginaCriacao.type('date')
+  dtRelancaPaginaCriacao.type = 'date'
+
 
   const legendaComDuracaoCriacao = document.createElement('div')
   legendaComDuracaoCriacao.classList.add('legendaComDuracaoCriacao')
-
   const legendaDuracaoCriacao = document.createElement('h1')
   legendaDuracaoCriacao.classList.add('legendaDuracaoCriacao')
   legendaDuracaoCriacao.textContent = 'Duração:'
-
   const duracaoPaginaCriacao = document.createElement('input')
   duracaoPaginaCriacao.classList.add('duracaoPaginaCriacao')
   duracaoPaginaCriacao.setAttribute('id', 'duracaoPaginaCriacao')
-  duracaoPaginaCriacao.type('time')
+  duracaoPaginaCriacao.type = 'time'
+
 
   const valorECompraCriacao = document.createElement('div')
   valorECompraCriacao.classList.add('valorECompraCriacao')
 
   const legendaComValorUnitarioCriacao = document.createElement('div')
   legendaComValorUnitarioCriacao.classList.add('legendaComValorUnitarioCriacao')
-
   const legendaValorCriacao = document.createElement('h1')
   legendaValorCriacao.classList.add('legendaValorCriacao')
   legendaValorCriacao.textContent = 'Valor Unitário:'
-
   const valorUnitarioPaginaCriacao = document.createElement('input')
   valorUnitarioPaginaCriacao.classList.add('valorUnitarioPaginaCriacao')
   valorUnitarioPaginaCriacao.setAttribute('id', 'valorUnitarioPaginaCriacao')
-  valorUnitarioPaginaCriacao.type('number')
+  valorUnitarioPaginaCriacao.type = 'number'
 
   const btn_Criar_Filme = document.createElement('button')
   btn_Criar_Filme.classList.add("btn", "btn-primary", "btn-lg", "btn_Criar_Filme")
@@ -700,13 +738,29 @@ function criaModalPostagemFilme() {
   btn_Criar_Filme.textContent = 'Criar Filme!'
 
 
-  paginaCriacaoFilmes.append(cardPaginaCriacaoIMG, infoFilmePaginaCriacao)
+  legendaComValorUnitarioCriacao.append(legendaValorCriacao, valorUnitarioPaginaCriacao)
+  valorECompraCriacao.append(legendaComValorUnitarioCriacao, btn_Criar_Filme)
+  legendaComDuracaoCriacao.append(legendaDuracaoCriacao, duracaoPaginaCriacao)
+  legendaComDtRelancaPaginaCriacao.append(legendadtRelancaPaginaCriacao, dtRelancaPaginaCriacao)
+  legendaComDtLancaPaginaCriacao.append(legendadtLancaPaginaCriacao, dtLancaPaginaCriacao)
+  dtLanca_RelancaPaginaCriacao.append(legendaComDtLancaPaginaCriacao, legendaComDtRelancaPaginaCriacao)
+  legendaComSinopsePaginaCriacao.append(legendaSinopsePaginaCriacao, sinopsePaginaCriacao)
+  infoFilmePaginaCriacao.append(tituloPaginaCriacao, legendaComSinopsePaginaCriacao, dtLanca_RelancaPaginaCriacao, legendaComDuracaoCriacao, valorECompraCriacao)
+  legendaComInputLinkCapaFilmeCriacao.append(legendaCapaFilmeCriacao, imgCapaFilmeCriacao)
+  selectClassificacoesCriacao.append(optionClassificacaoPadrao)
+  classificacaoCriacao.append(legendaClassificacaoFilmeCriacao, selectClassificacoesCriacao)
+  imgPaginaCriacao.append(classificacaoCriacao, legendaComInputLinkCapaFilmeCriacao)
+  cardPaginaCriacaoIMG.appendChild(imgPaginaCriacao)
+  campoImagemClassificacaoCriacao.appendChild(cardPaginaCriacaoIMG)
+  paginaCriacaoFilmes.append(campoImagemClassificacaoCriacao, infoFilmePaginaCriacao)
   sairCriacao.appendChild(btn_sairCriacao)
   holderBotaoSairCriacao.appendChild(sairCriacao)
   modal_body.append(holderBotaoSairCriacao, paginaCriacaoFilmes)
   modal_content.appendChild(modal_body)
   modal_dialog.appendChild(modal_content)
-  
+  modal.appendChild(modal_dialog)
+
+  return modal
 }
 
 window.onload = async () => {
@@ -716,6 +770,7 @@ window.onload = async () => {
 
   criarBarraPesquisa()
   preencherLista()
+  mostraModalCriacao()
   console.table(filme);
   console.table(classificacoes);
 }

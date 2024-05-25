@@ -13,8 +13,9 @@ header{
 
 main{
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
     background-color: #AF0F0F;
     height: 88vh;
 }
@@ -87,10 +88,6 @@ main{
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
-
-}
-
-.legendaComInputLinkCapaFilmeEdicao{
 
 }
 
@@ -633,6 +630,324 @@ main{
 }
 
 .btn_comprarUserView{
+    background-color: #336DAF;
+    color: #ffff;
+}
+
+.sairCriacao{
+    display: flex;
+    height: 32px;
+    width: 32px;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 100%;
+}
+
+.paginaCriacaoFilmes{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #AF0F0F;
+}
+
+.cardPaginaCriacaoIMG{
+    display: flex;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #336DAF;
+
+}
+
+.imgPaginaCriacao{
+    padding: 16px;
+    height: 400px;
+    width: 300px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 10px;
+
+}
+
+.legendaCapaFilmeCriacao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.imgCapaFilmeCriacao{
+    display: flex;
+    height: 64px;
+    width: 268px;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.classificacaoCriacao{
+    display: flex;
+    flex-direction: column;
+    height: 128px;
+    width: 268px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendaClassificacaoFilmeCriacao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.selectClassificacoesCriacao{
+    display: flex;
+    height: 64px;
+    width: 268px;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.optionClassificacao{
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    background-color: #336DAF;
+}
+
+.infoFilmePaginaCriacao{
+    width: 600px;
+    height: 550px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.tituloPaginaCriacao{
+    width: 400px;
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.legendaComSinopsePaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.legendaSinopsePaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    font-size: 32px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.sinopsePaginaCriacao{
+    width: 600px;
+    padding: 8px;
+    font-size: 18px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: justify;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+
+}
+
+.holderDtLancaPaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: center;
+}
+
+.dtLanca_RelancaPaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 24px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComDtLancaPaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtLancaPaginaCriacao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtLancaPaginaCriacao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.legendaComDtRelancaPaginaCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    padding: 0px 0px;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendadtRelancaPaginaCriacao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.dtRelancaPaginaCriacao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.legendaComDuracaoCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    padding: 0px 120px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.legendaDuracaoCriacao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.duracaoPaginaCriacao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.valorECompraCriacao{
+    width: 600px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.legendaComValorUnitarioCriacao{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.legendaValorCriacao{
+    font-size: 28px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: bolder;
+    text-align: center;
+    color: white;
+}
+
+.valorUnitarioPaginaCriacao{
+    font-size: 24px;
+    font-family: 'Inika';
+    font-style: normal;
+    font-weight: lighter;
+    text-align: center;
+    color: white;
+    background-color: transparent;
+        border: 2px solid white;
+    border-radius: 5px;
+}
+
+.btn_Criar_Filme{
     background-color: #336DAF;
     color: #ffff;
 }
