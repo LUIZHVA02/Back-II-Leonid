@@ -1,5 +1,5 @@
 import { getFilmes, getFilme, postFilme, getFilmeByName } from "./filmes.js"
-import { tratarData, tratarDuracao } from "./tratamento.js"
+import { tratarData, tratarDuracao, tratarValorUnitario } from "./tratamento.js"
 
 export function criarBarraPesquisa() {
 
@@ -167,21 +167,24 @@ function criarModal(filme) {
     filme.data_relancamento != null
 ) {
     modal.innerHTML = `
-        <div class="modal-dialog modal-xl modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-body">
+<div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+        <div class="modal-body">
             <div class="botao-sair">
               <div class="sair">
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
             </div>
             <div class="cardPaginaFilmes">
-            <div class="campoImagemClassificacao">
-            <div class="cardPaginaIMG">
-              <div class="imgPagina" style="background-image: url('${filme.foto_capa}');">
-                <div class="classificacao">
-              <img src="${filme.imagem}" alt="">
-            </div>
+              <div class="campoImagemClassificacao">
+                <div class="cardPaginaIMG">
+                  <div class="imgPagina" style="background-image: url('${filme.foto_capa}');">
+                    <div class="classificacao">
+                      <img src="${filme.imagem}" alt="">
+                    </div>
+                  </div>
+                </div>
+              </div>
               <div class="infoFilmePagina">
                 <h2 class="tituloPagina">${filme.nome}</h2>
                 <div class="legendaComSinopsePagina">
@@ -205,7 +208,7 @@ function criarModal(filme) {
                 <div class="valorECompra">
                   <div class="legendaComValorUnitario">
                     <h1 class="legendaValor">Valor Unitário:</h1>
-                    <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
+                    <h1 class="valorUnitarioPagina">${tratarValorUnitario(filme.valor_unitario)}</h1>
                   </div>
                   <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
                 </div>
@@ -213,8 +216,8 @@ function criarModal(filme) {
             </div>
           </div>
         </div>
-      </div>
-      </div>
+    </div>
+</div>
     `
   }
   if (
@@ -236,15 +239,10 @@ function criarModal(filme) {
             <div class="cardPaginaIMG">
               <div class="imgPagina" style="background-image: url('${filme.foto_capa}');">
                 <div class="classificacao">
-              <img src="${filme.imagem}" alt="">
-            </div>
-            <div class="avaliacoes">
-              <h1 class="numEstrelas"></h1>
-              <img class="starIMG">
-            </div>
+                  <img src="${filme.imagem}" alt="">
+                </div>
               </div>
             </div>
-            
           </div>
           <div class="infoFilmePagina">
             <h2 class="tituloPagina">${filme.nome}</h2>
@@ -265,7 +263,7 @@ function criarModal(filme) {
             <div class="valorECompra">
               <div class="legendaComValorUnitario">
                 <h1 class="legendaValor">Valor Unitário:</h1>
-                <h1 class="valorUnitarioPagina">${filme.valor_unitario}</h1>
+                <h1 class="valorUnitarioPagina">${tratarValorUnitario(filme.valor_unitario)}</h1>
               </div>
               <button class="btn btn-primary btn-lg btn_comprar">Comprar</button>
             </div>

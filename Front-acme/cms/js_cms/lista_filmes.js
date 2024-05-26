@@ -12,7 +12,7 @@ export function criarBarraPesquisa() {
   buttonMenu.classList.add('buttonMenu')
   buttonMenu.setAttribute('id', 'buttonMenu')
   buttonMenu.setAttribute('data-bs-toggle',"offcanvas")
-  buttonMenu.setAttribute('data-bs-target', '#staticBackdrop')
+  buttonMenu.setAttribute('data-bs-target', '#staticBackdrop1')
   buttonMenu.setAttribute('aria-controls', 'staticBackdrop')
 
   const imgMenuBurguer = document.createElement('img')
@@ -118,7 +118,7 @@ function criarItensLista(filme) {
     var myModal = new bootstrap.Modal(modal)
     myModal.show()
 
-    const btnSair = document.getElementById('btn_close')
+    const btnSair = document.getElementById('btn_sair_userView')
     btnSair.addEventListener('click', () => {
       const modalUserView = document.getElementById("staticBackdrop")
       modalUserView.parentNode.removeChild(modalUserView)
@@ -180,7 +180,7 @@ function criarItensLista(filme) {
 
     })
 
-    const btnSair = document.getElementById('btn-sair')
+    const btnSair = document.getElementById('btn_sair_Edicao')
     btnSair.addEventListener('click', () => {
       const modalEdicao = document.getElementById("staticBackdrop");
       modalEdicao.parentNode.removeChild(modalEdicao);
@@ -280,7 +280,7 @@ function criarModalUserView(filme) {
               <div class="modal-body">
                 <div class="botao-sair">
                   <div class="sair">
-                    <button type="button" class="btn-close btn-sair" id="btn_close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close btn-sair" id="btn_sair_userView" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                 </div>
                 <div class="cardPaginaUserViewFilmes">
@@ -340,7 +340,7 @@ function criarModalUserView(filme) {
           <div class="modal-body">
             <div class="botao-sair">
               <div class="sair">
-                <button type="button" class="btn-close btn-sair" id="btn_close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="btn-close btn-sair" id="btn_sair_userView" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
             </div>
             <div class="cardPaginaUserViewFilmes">
@@ -412,7 +412,7 @@ function criarModalEdicao(filme) {
         <div class="modal-body">
             <div class="botao-sair">
                 <div class="sair">
-                    <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
+                    <button type="button" class="btn-close btn-sair" id="btn_sair_Edicao" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
             </div>
@@ -490,7 +490,7 @@ function criarModalEdicao(filme) {
         <div class="modal-body">
             <div class="botao-sair">
                 <div class="sair">
-                    <button type="button" class="btn-close btn-sair" id="btn-sair" data-bs-dismiss="modal"
+                    <button type="button" class="btn-close btn-sair" id="btn_sair_Edicao" data-bs-dismiss="modal"
                         aria-label="Close"></button>
                 </div>
             </div>
