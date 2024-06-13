@@ -22,6 +22,9 @@ export function criarBarraPesquisa() {
   const buttonHome = document.createElement('button')
   buttonHome.classList.add('buttonHome')
   buttonHome.setAttribute('id', 'buttonHome')
+  buttonHome.addEventListener('click', ()=>{
+    window.location.heref = "../home.html"
+  })
   const imgLogo = document.createElement('img')
   imgLogo.src = './image/png/acmeLogo.png'
 
