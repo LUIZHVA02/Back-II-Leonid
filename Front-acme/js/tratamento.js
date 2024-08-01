@@ -59,6 +59,8 @@ function tratarDuracaoSimples(tempo) {
 function tratarValorUnitario(valorUnitario) {
     const strValorUnitario = valorUnitario.toString()
 
+    
+
     const digito0 = strValorUnitario.split("")[0];
     const digito1 = strValorUnitario.split("")[1];
     const digito2 = strValorUnitario.split("")[2];
